@@ -1,0 +1,2452 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nuestra Historia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --cafe-noche: #1b1009;
+      --cafe-oscuro: #302015;
+      --cafe: #5d4030;
+
+      --oro: #b08d57;
+      --oro-claro: #d8bd8b;
+
+      --crema: #f8f0df;
+      --papel: #eee1c7;
+      --papel-claro: #fbf6ea;
+
+      --tinta: #40301f;
+      --tinta-suave: #705e48;
+
+      --serif: "Playfair Display", Georgia, serif;
+      --cuerpo: "Cormorant Garamond", Georgia, serif;
+      --script: "Great Vibes", cursive;
+    }
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--cuerpo);
+      color: var(--tinta);
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(176, 141, 87, 0.12),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 90%,
+          rgba(176, 141, 87, 0.08),
+          transparent 40%
+        ),
+        linear-gradient(
+          145deg,
+          #302015,
+          #1b1009 55%,
+          #120a06
+        );
+
+      overflow-x: hidden;
+    }
+
+    /* =========================================================
+       ESCENAS
+    ========================================================= */
+
+    .escena {
+      display: none;
+      width: min(1200px, 94vw);
+      min-height: 100vh;
+      margin: auto;
+      padding: 50px 0 120px;
+    }
+
+    .escena.activa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: aparecer 0.7s ease;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================================
+       PORTADA
+    ========================================================= */
+
+    #escena-portada {
+      padding: 30px 0;
+    }
+
+    .portada-libro {
+      position: relative;
+
+      width: min(460px, 90vw);
+      min-height: 650px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 60px 40px;
+
+      text-align: center;
+      cursor: pointer;
+
+      color: var(--crema);
+
+      background:
+        radial-gradient(
+          circle at 30% 15%,
+          rgba(216, 189, 139, 0.16),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          #4a3422,
+          #302015 55%,
+          #20140d
+        );
+
+      border-radius: 8px 18px 18px 8px;
+
+      border: 1px solid rgba(216, 189, 139, 0.4);
+
+      box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.65),
+        inset 8px 0 20px rgba(0, 0, 0, 0.2),
+        inset 0 0 60px rgba(0, 0, 0, 0.35);
+
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+    }
+
+    .portada-libro:hover {
+      transform: translateY(-8px) rotateY(-2deg);
+
+      box-shadow:
+        0 55px 100px rgba(0, 0, 0, 0.75),
+        inset 8px 0 20px rgba(0, 0, 0, 0.2),
+        inset 0 0 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .portada-libro::before {
+      content: "";
+
+      position: absolute;
+      inset: 15px;
+
+      border: 1px solid rgba(216, 189, 139, 0.5);
+
+      border-radius: 5px 13px 13px 5px;
+
+      pointer-events: none;
+    }
+
+    .portada-libro::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      left: 12px;
+
+      width: 3px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(216, 189, 139, 0.6),
+          transparent
+        );
+    }
+
+    .monograma {
+      font-family: var(--serif);
+      font-size: 15px;
+      letter-spacing: 8px;
+      color: var(--oro-claro);
+      margin-bottom: 30px;
+    }
+
+    .portada-titulo {
+      font-family: var(--serif);
+      font-size: clamp(38px, 7vw, 56px);
+      line-height: 1.1;
+      font-weight: 600;
+      color: #fff6e5;
+    }
+
+    .portada-nombres {
+      margin-top: 18px;
+
+      font-family: var(--script);
+      font-size: clamp(36px, 7vw, 48px);
+
+      color: var(--oro-claro);
+    }
+
+    .portada-sub {
+      max-width: 32ch;
+
+      margin-top: 25px;
+
+      font-size: 18px;
+      line-height: 1.6;
+
+      font-style: italic;
+
+      color: rgba(248, 240, 223, 0.8);
+    }
+
+    .portada-linea {
+      width: 100px;
+      height: 1px;
+
+      margin: 25px 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--oro-claro),
+          transparent
+        );
+    }
+
+    .portada-fecha {
+      font-family: var(--serif);
+      font-size: 12px;
+
+      letter-spacing: 3px;
+      line-height: 1.8;
+
+      text-transform: uppercase;
+
+      color: var(--oro-claro);
+    }
+
+    .portada-abrir {
+      margin-top: 35px;
+
+      font-family: var(--serif);
+      font-size: 12px;
+
+      letter-spacing: 4px;
+      text-transform: uppercase;
+
+      color: var(--oro-claro);
+
+      animation: latido 2.5s infinite;
+    }
+
+    @keyframes latido {
+      0%, 100% {
+        opacity: 0.45;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .sello {
+      position: absolute;
+
+      top: 28px;
+      right: 28px;
+
+      width: 72px;
+      height: 72px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(216, 189, 139, 0.7);
+      border-radius: 50%;
+
+      color: var(--oro-claro);
+
+      transform: rotate(8deg);
+    }
+
+    .sello strong {
+      font-family: var(--serif);
+      font-size: 26px;
+    }
+
+    .sello small {
+      font-size: 8px;
+      letter-spacing: 3px;
+    }
+
+    /* =========================================================
+       LIBRO
+    ========================================================= */
+
+    .libro {
+      position: relative;
+
+      width: 100%;
+
+      display: flex;
+
+      background: #2a1a10;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        0 10px 20px rgba(0, 0, 0, 0.4);
+
+      overflow: hidden;
+
+      perspective: 1800px;
+    }
+
+    /* LOMO */
+
+    .libro::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      left: 50%;
+
+      width: 18px;
+
+      transform: translateX(-50%);
+
+      z-index: 5;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,0.15),
+          rgba(80,55,35,0.25),
+          rgba(0,0,0,0.15)
+        );
+
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       PAGINAS
+    ========================================================= */
+
+    .pagina {
+      position: relative;
+
+      flex: 1;
+
+      min-height: 650px;
+
+      padding: 60px 55px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(93, 64, 48, 0.06),
+          transparent 25%
+        ),
+        linear-gradient(
+          270deg,
+          rgba(93, 64, 48, 0.05),
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          var(--papel-claro),
+          var(--papel)
+        );
+
+      overflow: hidden;
+    }
+
+    .pagina:first-child {
+      border-radius: 12px 0 0 12px;
+
+      box-shadow:
+        inset -20px 0 30px -25px rgba(40, 25, 15, 0.6);
+    }
+
+    .pagina:last-child {
+      border-radius: 0 12px 12px 0;
+
+      box-shadow:
+        inset 20px 0 30px -25px rgba(40, 25, 15, 0.6);
+    }
+
+    .pagina::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 18px;
+
+      border: 1px solid rgba(176, 141, 87, 0.28);
+
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       TITULOS
+    ========================================================= */
+
+    .cap-numero {
+      text-align: center;
+
+      font-family: var(--serif);
+
+      font-size: 13px;
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+
+      color: var(--oro);
+    }
+
+    .cap-titulo {
+      margin-top: 12px;
+
+      text-align: center;
+
+      font-family: var(--serif);
+
+      font-size: clamp(30px, 4vw, 45px);
+
+      color: var(--cafe-oscuro);
+    }
+
+    .subtitulo {
+      margin-top: 8px;
+
+      text-align: center;
+
+      font-size: 17px;
+
+      font-style: italic;
+
+      color: var(--tinta-suave);
+    }
+
+    .adorno {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 15px;
+
+      margin: 25px 0 30px;
+
+      color: var(--oro);
+    }
+
+    .adorno::before,
+    .adorno::after {
+      content: "";
+
+      width: 80px;
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--oro)
+        );
+    }
+
+    .adorno::after {
+      background:
+        linear-gradient(
+          270deg,
+          transparent,
+          var(--oro)
+        );
+    }
+
+    /* =========================================================
+       TEXTO
+    ========================================================= */
+
+    .texto {
+      max-width: 60ch;
+
+      margin: auto;
+    }
+
+    .texto p {
+      margin-bottom: 20px;
+
+      font-size: clamp(17px, 1.7vw, 20px);
+
+      line-height: 1.8;
+
+      color: var(--tinta-suave);
+    }
+
+    .inicial {
+      float: left;
+
+      margin: 7px 12px 0 0;
+
+      font-family: var(--serif);
+
+      font-size: 64px;
+
+      line-height: 0.8;
+
+      color: var(--cafe);
+    }
+
+    /* =========================================================
+       FOTOS
+    ========================================================= */
+
+    .foto-marco {
+      position: relative;
+
+      max-width: 380px;
+
+      margin: 25px auto;
+
+      padding: 13px 13px 42px;
+
+      background: #fffdf8;
+
+      box-shadow:
+        0 20px 35px rgba(45, 28, 17, 0.25);
+
+      transform: rotate(-1.5deg);
+
+      transition: 0.4s ease;
+
+      cursor: zoom-in;
+    }
+
+    .foto-marco:hover {
+      transform: rotate(0) scale(1.025);
+
+      box-shadow:
+        0 25px 45px rgba(45, 28, 17, 0.35);
+    }
+
+    .foto-marco img {
+      width: 100%;
+      display: block;
+
+      filter: sepia(0.08) saturate(0.95);
+    }
+
+    .foto-marco figcaption {
+      margin-top: 12px;
+
+      text-align: center;
+
+      font-family: var(--script);
+
+      font-size: 23px;
+
+      color: var(--tinta-suave);
+    }
+
+    .cinta {
+      position: absolute;
+
+      top: -13px;
+      left: 50%;
+
+      width: 100px;
+      height: 28px;
+
+      transform:
+        translateX(-50%)
+        rotate(-4deg);
+
+      background: rgba(176, 141, 87, 0.45);
+    }
+
+    .nota {
+      max-width: 400px;
+
+      margin: 30px auto;
+
+      padding: 18px 22px;
+
+      border-left: 2px solid var(--oro);
+
+      background: rgba(176, 141, 87, 0.09);
+
+      font-size: 18px;
+
+      font-style: italic;
+
+      line-height: 1.6;
+
+      color: var(--tinta-suave);
+    }
+
+    /* =========================================================
+       GALERIA
+    ========================================================= */
+
+    .pagina.pagina-completa {
+      flex-basis: 100%;
+
+      border-radius: 12px;
+
+      box-shadow: none;
+
+      background: linear-gradient(
+        180deg,
+        var(--papel-claro),
+        var(--papel)
+      );
+    }
+
+    .galeria {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 25px 18px;
+    }
+
+    .galeria .foto-marco {
+      width: 100%;
+
+      max-width: none;
+
+      margin: 0;
+    }
+
+    .galeria .foto-marco:nth-child(even) {
+      transform: rotate(1.4deg);
+    }
+
+    .galeria .foto-marco:hover {
+      transform: rotate(0) scale(1.03);
+      z-index: 2;
+    }
+
+    /* =========================================================
+       VIDEOS
+    ========================================================= */
+
+    .videos {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 30px;
+    }
+
+    .video-item {
+      text-align: center;
+    }
+
+    .video-marco {
+      padding: 10px;
+
+      background: #20140d;
+
+      border: 1px solid rgba(176, 141, 87, 0.45);
+
+      box-shadow:
+        0 15px 30px rgba(30, 18, 10, 0.3);
+    }
+
+    .video-marco video {
+      width: 100%;
+
+      display: block;
+
+      border-radius: 2px;
+    }
+
+    .video-item figcaption {
+      margin-top: 12px;
+
+      font-family: var(--script);
+
+      font-size: 22px;
+
+      color: var(--tinta-suave);
+    }
+
+    /* =========================================================
+       DEDICATORIA
+    ========================================================= */
+
+    .dedicatoria {
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+
+      height: 100%;
+
+      max-width: 60ch;
+
+      margin: auto;
+    }
+
+    .corazon {
+      text-align: center;
+
+      font-size: 80px;
+
+      color: rgba(176, 141, 87, 0.45);
+
+      margin-bottom: 20px;
+    }
+
+    .frase-final {
+      text-align: center;
+
+      font-family: var(--script);
+
+      font-size: 36px;
+
+      line-height: 1.5;
+
+      color: var(--tinta-suave);
+    }
+
+    .firma {
+      margin-top: 35px;
+
+      text-align: right;
+
+      font-family: var(--script);
+
+      font-size: 35px;
+
+      color: var(--cafe);
+    }
+
+    /* =========================================================
+       VISOR DE FOTOS
+    ========================================================= */
+
+    .visor {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 100;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 25px;
+
+      background: rgba(20, 12, 7, 0.94);
+
+      cursor: zoom-out;
+    }
+
+    .visor.abierto {
+      display: flex;
+    }
+
+    .visor img {
+      max-width: 92vw;
+      max-height: 90vh;
+      max-height: 90dvh;
+
+      border: 6px solid var(--crema);
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.7);
+    }
+
+    /* =========================================================
+       NAVEGACION
+    ========================================================= */
+
+    .navegacion {
+      position: fixed;
+
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 50;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 25px;
+
+      padding: 15px 20px;
+
+      background:
+        linear-gradient(
+          0deg,
+          rgba(15,9,5,0.95),
+          rgba(15,9,5,0.65),
+          transparent
+        );
+    }
+
+    .boton {
+      padding: 10px 22px;
+
+      border-radius: 999px;
+
+      border: 1px solid rgba(216,189,139,0.5);
+
+      background: rgba(36,24,17,0.7);
+
+      color: var(--oro-claro);
+
+      font-family: var(--serif);
+
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .boton:hover {
+      background: rgba(93,64,48,0.9);
+
+      border-color: var(--oro-claro);
+
+      color: white;
+    }
+
+    .boton.oculto {
+      visibility: hidden;
+    }
+
+    .puntos {
+      display: flex;
+
+      gap: 9px;
+    }
+
+    .punto {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      border: 1px solid var(--oro);
+
+      cursor: pointer;
+
+      transition: 0.3s ease;
+    }
+
+    .punto.actual {
+      background: var(--oro);
+
+      transform: scale(1.3);
+    }
+
+    /* =========================================================
+       EFECTO DE PASAR PAGINA
+    ========================================================= */
+
+    .pasar {
+      animation: pasarPagina 0.75s ease both;
+      transform-origin: left center;
+    }
+
+    @keyframes pasarPagina {
+      0% {
+        opacity: 0.2;
+
+        transform:
+          perspective(1600px)
+          rotateY(-12deg)
+          translateX(-20px);
+      }
+
+      100% {
+        opacity: 1;
+
+        transform:
+          perspective(1600px)
+          rotateY(0)
+          translateX(0);
+      }
+    }
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .galeria {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+      .pagina {
+        padding: 50px 35px;
+      }
+    }
+
+    /* =========================================================
+       CELULAR
+    ========================================================= */
+
+    @media (max-width: 700px) {
+
+      body {
+        padding-bottom: 80px;
+
+        -webkit-text-size-adjust: 100%;
+      }
+
+      .boton,
+      .punto,
+      .foto-marco,
+      .portada-libro {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .escena {
+        width: 94vw;
+
+        padding:
+          25px 0
+          100px;
+      }
+
+      .libro {
+        flex-direction: column;
+
+        border-radius: 10px;
+
+        overflow: hidden;
+      }
+
+      .libro::before {
+        display: none;
+      }
+
+      .pagina {
+        min-height: auto;
+
+        padding:
+          45px 25px
+          55px;
+      }
+
+      .pagina:first-child,
+      .pagina:last-child {
+        border-radius: 0;
+
+        box-shadow:
+          inset 0 -15px 25px -25px rgba(40,25,15,0.5);
+      }
+
+      .pagina::after {
+        inset: 12px;
+      }
+
+      .cap-titulo {
+        font-size: 31px;
+      }
+
+      .galeria {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px 12px;
+      }
+
+      .galeria .foto-marco {
+        padding:
+          8px 8px 28px;
+      }
+
+      .galeria .foto-marco figcaption {
+        font-size: 18px;
+      }
+
+      .videos {
+        grid-template-columns: 1fr;
+      }
+
+      .foto-marco {
+        max-width: 320px;
+      }
+
+      .navegacion {
+        gap: 10px;
+
+        padding:
+          12px 10px
+          calc(12px + env(safe-area-inset-bottom));
+      }
+
+      .boton {
+        padding:
+          11px 16px;
+
+        font-size: 11px;
+
+        letter-spacing: 1px;
+      }
+
+      .puntos {
+        gap: 6px;
+      }
+
+      .punto {
+        width: 7px;
+        height: 7px;
+      }
+
+      .portada-libro {
+        min-height: min(600px, calc(100svh - 150px));
+
+        min-height: min(600px, calc(100dvh - 150px));
+
+        padding: 40px 22px;
+      }
+
+      .sello {
+        width: 60px;
+        height: 60px;
+
+        right: 22px;
+        top: 22px;
+      }
+
+      .frase-final {
+        font-size: 30px;
+      }
+
+      .firma {
+        font-size: 30px;
+      }
+    }
+
+    /* =========================================================
+       CELULAR PEQUEÑO
+    ========================================================= */
+
+    @media (max-width: 430px) {
+
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+
+      .galeria .foto-marco {
+        max-width: 310px;
+
+        margin: auto;
+      }
+
+      .portada-libro {
+        min-height: min(570px, calc(100svh - 140px));
+
+        min-height: min(570px, calc(100dvh - 140px));
+      }
+
+      .portada-titulo {
+        font-size: 38px;
+      }
+
+      .portada-nombres {
+        font-size: 35px;
+      }
+
+      .portada-sub {
+        font-size: 16px;
+      }
+
+      .boton {
+        padding: 10px 14px;
+
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       PORTADA
+  ========================================================== -->
+
+  <section class="escena activa" id="escena-portada">
+
+    <div
+      class="portada-libro"
+      id="abrir-libro"
+      role="button"
+      tabindex="0"
+    >
+
+      <div class="sello">
+        <strong>2</strong>
+        <small>AÑOS</small>
+      </div>
+
+      <div class="monograma" id="portada-iniciales"></div>
+
+      <h1 class="portada-titulo" id="portada-titulo"></h1>
+
+      <div class="portada-linea"></div>
+
+      <div class="portada-nombres" id="portada-nombres"></div>
+
+      <p class="portada-sub" id="portada-sub"></p>
+
+      <div class="portada-linea"></div>
+
+      <div class="portada-fecha" id="portada-fecha"></div>
+
+      <div class="portada-abrir">
+        Toca para abrir el libro
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       CAPITULO I
+  ========================================================== -->
+
+  <section class="escena" id="escena-cap1">
+
+    <main class="libro">
+
+      <section class="pagina">
+
+        <div class="cap-numero" id="cap1-numero"></div>
+
+        <h2 class="cap-titulo" id="cap1-titulo"></h2>
+
+        <div class="adorno">✦</div>
+
+        <div class="texto" id="cap1-texto"></div>
+
+      </section>
+
+
+      <section class="pagina">
+
+        <figure class="foto-marco" id="cap1-foto">
+
+          <span class="cinta"></span>
+
+          <img id="cap1-img" alt="">
+
+          <figcaption id="cap1-pie"></figcaption>
+
+        </figure>
+
+        <div class="nota" id="cap1-nota"></div>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
+       CAPITULO II
+  ========================================================== -->
+
+  <section class="escena" id="escena-cap2">
+
+    <main class="libro">
+
+      <section class="pagina">
+
+        <figure class="foto-marco" id="cap2-foto">
+
+          <span class="cinta"></span>
+
+          <img id="cap2-img" alt="">
+
+          <figcaption id="cap2-pie"></figcaption>
+
+        </figure>
+
+      </section>
+
+
+      <section class="pagina">
+
+        <div class="cap-numero" id="cap2-numero"></div>
+
+        <h2 class="cap-titulo" id="cap2-titulo"></h2>
+
+        <div class="adorno">✦</div>
+
+        <div class="texto" id="cap2-texto"></div>
+
+        <div class="nota" id="cap2-nota"></div>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
+       GALERIA
+  ========================================================== -->
+
+  <section class="escena" id="escena-galeria">
+
+    <main class="libro">
+
+      <section class="pagina pagina-completa">
+
+        <div class="cap-numero">
+          Capítulo III
+        </div>
+
+        <h2 class="cap-titulo" id="galeria-titulo"></h2>
+
+        <p class="subtitulo" id="galeria-subtitulo"></p>
+
+        <div class="adorno">✦</div>
+
+        <div class="galeria" id="galeria"></div>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
+       VIDEOS
+  ========================================================== -->
+
+  <section class="escena" id="escena-videos">
+
+    <main class="libro">
+
+      <section class="pagina pagina-completa">
+
+        <div class="cap-numero">
+          Capítulo IV
+        </div>
+
+        <h2 class="cap-titulo" id="videos-titulo"></h2>
+
+        <p class="subtitulo" id="videos-subtitulo"></p>
+
+        <div class="adorno">✦</div>
+
+        <div class="videos" id="videos"></div>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
+       DEDICATORIA
+  ========================================================== -->
+
+  <section class="escena" id="escena-dedicatoria">
+
+    <main class="libro">
+
+      <section class="pagina">
+
+        <div class="cap-numero" id="dedi-numero"></div>
+
+        <h2 class="cap-titulo" id="dedi-titulo"></h2>
+
+        <div class="adorno">✦</div>
+
+        <div class="dedicatoria">
+
+          <div class="corazon">
+            ♥
+          </div>
+
+          <p class="frase-final">
+            Dos años contigo y siento que apenas comienza nuestra historia.
+          </p>
+
+          <div class="portada-linea"></div>
+
+          <p
+            style="
+              text-align:center;
+              letter-spacing:3px;
+              text-transform:uppercase;
+              color:var(--tinta-suave);
+            "
+            id="dedi-nombres"
+          ></p>
+
+        </div>
+
+      </section>
+
+
+      <section class="pagina">
+
+        <article
+          class="texto"
+          id="dedi-texto"
+        ></article>
+
+        <div
+          class="firma"
+          id="dedi-firma"
+        ></div>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
+       NAVEGACION
+  ========================================================== -->
+
+  <nav class="navegacion">
+
+    <button
+      class="boton oculto"
+      id="anterior"
+    >
+      ← Anterior
+    </button>
+
+    <div
+      class="puntos"
+      id="puntos"
+    ></div>
+
+    <button
+      class="boton"
+      id="siguiente"
+    >
+      Siguiente →
+    </button>
+
+  </nav>
+
+
+  <!-- =========================================================
+       VISOR
+  ========================================================== -->
+
+  <div
+    class="visor"
+    id="visor"
+  >
+    <img id="visor-img" alt="">
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
+  <script>
+
+    /* =========================================================
+       ARCHIVOS
+    ========================================================= */
+
+    const MEDIA = {
+
+      foto01: "media/foto01.jpg",
+      foto02: "media/foto02.jpg",
+      foto03: "media/foto03.jpg",
+      foto04: "media/foto04.jpg",
+      foto05: "media/foto05.jpg",
+      foto06: "media/foto06.jpg",
+      foto07: "media/foto07.jpg",
+      foto08: "media/foto08.jpg",
+      foto09: "media/foto09.jpg",
+      foto10: "media/foto10.jpg",
+      foto11: "media/foto11.jpg",
+      foto12: "media/foto12.jpg",
+      foto13: "media/foto13.jpg",
+      foto14: "media/foto14.jpg",
+      foto15: "media/foto15.jpg",
+      foto16: "media/foto16.jpg",
+      foto17: "media/foto17.jpg",
+      foto18: "media/foto18.jpg",
+      foto19: "media/foto19.jpg",
+      foto20: "media/foto20.jpg",
+
+      video01: "media/video01.mp4",
+      video02: "media/video02.mp4",
+      video03: "media/video03.mp4",
+      video04: "media/video04.mp4",
+      video05: "media/video05.mp4"
+
+    };
+
+
+    /* =========================================================
+       DATOS
+    ========================================================= */
+
+    const DATOS = {
+
+      nombre1: "Andrés",
+
+      nombre2: "Ana",
+
+      iniciales: "A · A",
+
+      tituloPortada: "Nuestra Historia",
+
+      subtituloPortada:
+        "Una noche que comenzó el 31 de agosto y se extendió hasta la madrugada del 1 de septiembre.",
+
+      fechaInicio:
+        "31 DE AGOSTO · 2024 — 01 DE SEPTIEMBRE · 2024",
+
+      comienzo: {
+
+        numero: "Capítulo I",
+
+        titulo: "El comienzo",
+
+        parrafos: [
+
+          "Hay historias que no comienzan con un estruendo, sino con una mirada que dura un segundo de más. La nuestra empezó así: sin saber que aquel día ordinario se volvería la fecha más importante de nuestras vidas.",
+
+          "Desde el primer momento hubo algo distinto, una calma extraña en medio del ruido, como si el universo hubiera decidido, en secreto, juntar dos caminos que siempre debieron cruzarse.",
+
+          "Lo que siguió fueron conversaciones largas, risas fáciles y la sensación repetida de haberse conocido toda la vida."
+
+        ],
+
+        nota:
+          "Y un día dejaste de ser alguien nuevo para convertirte en mi lugar favorito.",
+
+        foto: "foto06",
+
+        pie:
+          "Donde todo comenzó"
+
+      },
+
+
+      cita: {
+
+        numero: "Capítulo II",
+
+        titulo: "La primera cita",
+
+        parrafos: [
+
+          "Recuerdo los nervios de antes, el ensayar qué decir y después olvidarlo todo al verte. Recuerdo tu sonrisa, lo fácil que fue hablar contigo y cómo el tiempo hizo trampa para pasarnos volando.",
+
+          "Ese día entendí que las mejores citas no se miden por el lugar ni por el plan, sino por la compañía. Contigo hasta el silencio era buena conversación.",
+
+          "Caminamos sin rumbo y, aun así, llegamos a todas partes. Esa tarde salimos tal como éramos, y por primera vez eso fue suficiente."
+
+        ],
+
+        nota:
+          "Aquella tarde no lo sabíamos todavía, pero ya estábamos escribiendo los años que hoy celebramos.",
+
+        foto: "foto14",
+
+        pie:
+          "Tú y yo, desde el inicio"
+
+      },
+
+
+      galeriaTitulo:
+        "Nuestros momentos",
+
+      galeriaSubtitulo:
+        "Pequeños instantes que guardo como tesoros",
+
+      galeria: [
+
+        ["foto03", "Una tarde cualquiera contigo"],
+        ["foto04", "Tu sonrisa, mi debilidad"],
+        ["foto05", "Aventuras improvisadas"],
+        ["foto06", "Risas que no caben en una foto"],
+        ["foto07", "El lugar donde siempre quiero estar"],
+        ["foto08", "Contigo el tiempo vuela"],
+        ["foto09", "Mi persona favorita"],
+        ["foto10", "Planear el futuro, un día a la vez"],
+        ["foto11", "Detalles que dicen todo"],
+        ["foto12", "Nuestro rincón del mundo"],
+        ["foto13", "Cada día contigo es distinto"],
+        ["foto14", "Y aún así, igual de especial"],
+        ["foto15", "La vida es mejor a tu lado"],
+        ["foto16", "Por muchos años más de esto"],
+        ["foto17", "Recién llegados a este capítulo"],
+        ["foto18", "Momentos que aún nos hacen reír"],
+        ["foto19", "Lo mejor de este segundo año"],
+        ["foto20", "El presente que quiero seguir viviendo"],
+        ["foto01", "Una fiesta eterna"]
+
+      ],
+
+
+      videosTitulo:
+        "En movimiento",
+
+      videosSubtitulo:
+        "Los recuerdos también se mueven",
+
+      videos: [
+
+        ["video02", "La alegría de simplemente estar juntos"],
+        ["video03", "Nuestra banda sonora hecha imagen"],
+        ["video04", "Dos años resumidos en un gesto"],
+        ["video05", "Todo lo disfruto contigo"]
+
+      ],
+
+
+      dedicatoria: {
+
+        numero:
+          "Última página",
+
+        titulo:
+          "Para ti",
+
+        parrafos: [
+
+          "Hoy se cumplen dos años de la mejor decisión de mi vida. Dos años de aprender que el amor no es solo un sentimiento, sino elegirte todos los días, incluso en los difíciles.",
+
+          "Gracias por tu paciencia, por tu risa, por quedarte. Gracias por cada momento que vive en estas páginas y por los tantos que aún nos faltan.",
+
+          "Este libro no termina aquí; simplemente pasa de mano en mano, de año en año. Y yo quiero seguir escribiéndolo contigo."
+
+        ],
+
+        firma:
+          "Con todo mi amor, Andrés"
+
+      }
+
+    };
+
+
+    /* =========================================================
+       ESCENAS
+    ========================================================= */
+
+    const ESCENAS = [
+
+      "escena-portada",
+      "escena-cap1",
+      "escena-cap2",
+      "escena-galeria",
+      "escena-videos",
+      "escena-dedicatoria"
+
+    ];
+
+    const ETIQUETAS = [
+
+      "Portada",
+      "El comienzo",
+      "La primera cita",
+      "Nuestros momentos",
+      "En movimiento",
+      "Para ti"
+
+    ];
+
+    let actual = 0;
+
+
+    /* =========================================================
+       CAMBIAR PAGINA
+    ========================================================= */
+
+    function ir(numero) {
+
+      if (
+        numero < 0 ||
+        numero >= ESCENAS.length
+      ) {
+        return;
+      }
+
+      const anteriorEscena =
+        document.getElementById(
+          ESCENAS[actual]
+        );
+
+      anteriorEscena.classList.remove("activa");
+
+
+      anteriorEscena
+        .querySelectorAll("video")
+        .forEach(video => video.pause());
+
+
+      actual = numero;
+
+
+      const nuevaEscena =
+        document.getElementById(
+          ESCENAS[actual]
+        );
+
+      nuevaEscena.classList.add("activa");
+
+
+      const libro =
+        nuevaEscena.querySelector(".libro");
+
+
+      if (libro) {
+
+        libro.classList.remove("pasar");
+
+        void libro.offsetWidth;
+
+        libro.classList.add("pasar");
+
+      }
+
+
+      document
+        .getElementById("anterior")
+        .classList.toggle(
+          "oculto",
+          actual === 0
+        );
+
+
+      document
+        .getElementById("siguiente")
+        .classList.toggle(
+          "oculto",
+          actual === ESCENAS.length - 1
+        );
+
+
+      document
+        .querySelectorAll(".punto")
+        .forEach((punto, index) => {
+
+          punto.classList.toggle(
+            "actual",
+            index === actual
+          );
+
+        });
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* =========================================================
+       PARRAFOS
+    ========================================================= */
+
+    function crearParrafos(
+      contenedor,
+      parrafos
+    ) {
+
+      contenedor.innerHTML = "";
+
+      parrafos.forEach(
+        (texto, index) => {
+
+          const p =
+            document.createElement("p");
+
+          if (index === 0) {
+
+            const inicial =
+              document.createElement("span");
+
+            inicial.className = "inicial";
+
+            inicial.textContent =
+              texto.charAt(0);
+
+            p.appendChild(inicial);
+
+            p.appendChild(
+              document.createTextNode(
+                texto.slice(1)
+              )
+            );
+
+          } else {
+
+            p.textContent = texto;
+
+          }
+
+          contenedor.appendChild(p);
+
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       CREAR FOTO
+    ========================================================= */
+
+    function crearFoto(
+      archivo,
+      texto
+    ) {
+
+      const figure =
+        document.createElement("figure");
+
+      figure.className =
+        "foto-marco";
+
+
+      const img =
+        document.createElement("img");
+
+      img.src =
+        MEDIA[archivo];
+
+      img.alt =
+        texto;
+
+      img.loading =
+        "lazy";
+
+
+      const cinta =
+        document.createElement("span");
+
+      cinta.className =
+        "cinta";
+
+
+      const caption =
+        document.createElement("figcaption");
+
+      caption.textContent =
+        texto;
+
+
+      figure.appendChild(cinta);
+
+      figure.appendChild(img);
+
+      figure.appendChild(caption);
+
+
+      img.addEventListener(
+        "click",
+        () => abrirVisor(
+          MEDIA[archivo],
+          texto
+        )
+      );
+
+
+      return figure;
+
+    }
+
+
+    /* =========================================================
+       VISOR
+    ========================================================= */
+
+    function abrirVisor(
+      fuente,
+      texto
+    ) {
+
+      const visor =
+        document.getElementById("visor");
+
+      const imagen =
+        document.getElementById("visor-img");
+
+      imagen.src =
+        fuente;
+
+      imagen.alt =
+        texto;
+
+      visor.classList.add(
+        "abierto"
+      );
+
+    }
+
+
+    /* =========================================================
+       INICIAR
+    ========================================================= */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+
+        /* PORTADA */
+
+        document.getElementById(
+          "portada-iniciales"
+        ).textContent =
+          DATOS.iniciales;
+
+
+        document.getElementById(
+          "portada-titulo"
+        ).textContent =
+          DATOS.tituloPortada;
+
+
+        document.getElementById(
+          "portada-nombres"
+        ).textContent =
+          `${DATOS.nombre1} & ${DATOS.nombre2}`;
+
+
+        document.getElementById(
+          "portada-sub"
+        ).textContent =
+          DATOS.subtituloPortada;
+
+
+        document.getElementById(
+          "portada-fecha"
+        ).textContent =
+          DATOS.fechaInicio;
+
+
+
+        /* CAPITULO I */
+
+        document.getElementById(
+          "cap1-numero"
+        ).textContent =
+          DATOS.comienzo.numero;
+
+
+        document.getElementById(
+          "cap1-titulo"
+        ).textContent =
+          DATOS.comienzo.titulo;
+
+
+        crearParrafos(
+          document.getElementById(
+            "cap1-texto"
+          ),
+          DATOS.comienzo.parrafos
+        );
+
+
+        document.getElementById(
+          "cap1-img"
+        ).src =
+          MEDIA[DATOS.comienzo.foto];
+
+
+        document.getElementById(
+          "cap1-img"
+        ).alt =
+          DATOS.comienzo.pie;
+
+
+        document.getElementById(
+          "cap1-pie"
+        ).textContent =
+          DATOS.comienzo.pie;
+
+
+        document.getElementById(
+          "cap1-nota"
+        ).textContent =
+          DATOS.comienzo.nota;
+
+
+        document
+          .getElementById("cap1-foto")
+          .addEventListener(
+            "click",
+            () =>
+              abrirVisor(
+                MEDIA[DATOS.comienzo.foto],
+                DATOS.comienzo.pie
+              )
+          );
+
+
+
+        /* CAPITULO II */
+
+        document.getElementById(
+          "cap2-numero"
+        ).textContent =
+          DATOS.cita.numero;
+
+
+        document.getElementById(
+          "cap2-titulo"
+        ).textContent =
+          DATOS.cita.titulo;
+
+
+        crearParrafos(
+          document.getElementById(
+            "cap2-texto"
+          ),
+          DATOS.cita.parrafos
+        );
+
+
+        document.getElementById(
+          "cap2-img"
+        ).src =
+          MEDIA[DATOS.cita.foto];
+
+
+        document.getElementById(
+          "cap2-img"
+        ).alt =
+          DATOS.cita.pie;
+
+
+        document.getElementById(
+          "cap2-pie"
+        ).textContent =
+          DATOS.cita.pie;
+
+
+        document.getElementById(
+          "cap2-nota"
+        ).textContent =
+          DATOS.cita.nota;
+
+
+        document
+          .getElementById("cap2-foto")
+          .addEventListener(
+            "click",
+            () =>
+              abrirVisor(
+                MEDIA[DATOS.cita.foto],
+                DATOS.cita.pie
+              )
+          );
+
+
+
+        /* GALERIA */
+
+        document.getElementById(
+          "galeria-titulo"
+        ).textContent =
+          DATOS.galeriaTitulo;
+
+
+        document.getElementById(
+          "galeria-subtitulo"
+        ).textContent =
+          DATOS.galeriaSubtitulo;
+
+
+        const galeria =
+          document.getElementById(
+            "galeria"
+          );
+
+
+        DATOS.galeria.forEach(
+          ([foto, texto]) => {
+
+            galeria.appendChild(
+              crearFoto(
+                foto,
+                texto
+              )
+            );
+
+          }
+        );
+
+
+
+        /* VIDEOS */
+
+        document.getElementById(
+          "videos-titulo"
+        ).textContent =
+          DATOS.videosTitulo;
+
+
+        document.getElementById(
+          "videos-subtitulo"
+        ).textContent =
+          DATOS.videosSubtitulo;
+
+
+        const videos =
+          document.getElementById(
+            "videos"
+          );
+
+
+        DATOS.videos.forEach(
+          ([video, texto]) => {
+
+            const figura =
+              document.createElement(
+                "figure"
+              );
+
+            figura.className =
+              "video-item";
+
+
+            const marco =
+              document.createElement(
+                "div"
+              );
+
+            marco.className =
+              "video-marco";
+
+
+            const elemento =
+              document.createElement(
+                "video"
+              );
+
+            elemento.src =
+              MEDIA[video];
+
+            elemento.controls =
+              true;
+
+            elemento.preload =
+              "metadata";
+
+            elemento.playsInline =
+              true;
+
+            elemento.setAttribute(
+              "playsinline",
+              ""
+            );
+
+            elemento.setAttribute(
+              "webkit-playsinline",
+              ""
+            );
+
+
+            const caption =
+              document.createElement(
+                "figcaption"
+              );
+
+            caption.textContent =
+              texto;
+
+
+            marco.appendChild(
+              elemento
+            );
+
+            figura.appendChild(
+              marco
+            );
+
+            figura.appendChild(
+              caption
+            );
+
+
+            videos.appendChild(
+              figura
+            );
+
+          }
+        );
+
+
+
+        /* DEDICATORIA */
+
+        document.getElementById(
+          "dedi-numero"
+        ).textContent =
+          DATOS.dedicatoria.numero;
+
+
+        document.getElementById(
+          "dedi-titulo"
+        ).textContent =
+          DATOS.dedicatoria.titulo;
+
+
+        document.getElementById(
+          "dedi-nombres"
+        ).textContent =
+          `${DATOS.nombre1} & ${DATOS.nombre2}`;
+
+
+        crearParrafos(
+          document.getElementById(
+            "dedi-texto"
+          ),
+          DATOS.dedicatoria.parrafos
+        );
+
+
+        document.getElementById(
+          "dedi-firma"
+        ).textContent =
+          DATOS.dedicatoria.firma;
+
+
+
+        /* PUNTOS */
+
+        const puntos =
+          document.getElementById(
+            "puntos"
+          );
+
+
+        ETIQUETAS.forEach(
+          (etiqueta, index) => {
+
+            const punto =
+              document.createElement(
+                "span"
+              );
+
+            punto.className =
+              "punto";
+
+
+            if (index === 0) {
+
+              punto.classList.add(
+                "actual"
+              );
+
+            }
+
+
+            punto.title =
+              etiqueta;
+
+
+            punto.addEventListener(
+              "click",
+              () => ir(index)
+            );
+
+
+            puntos.appendChild(
+              punto
+            );
+
+          }
+        );
+
+
+
+        /* BOTONES */
+
+        document
+          .getElementById("anterior")
+          .addEventListener(
+            "click",
+            () => ir(actual - 1)
+          );
+
+
+        document
+          .getElementById("siguiente")
+          .addEventListener(
+            "click",
+            () => ir(actual + 1)
+          );
+
+
+
+        /* ABRIR LIBRO */
+
+        const abrir =
+          document.getElementById(
+            "abrir-libro"
+          );
+
+
+        abrir.addEventListener(
+          "click",
+          () => ir(1)
+        );
+
+
+        abrir.addEventListener(
+          "keydown",
+          event => {
+
+            if (
+              event.key === "Enter" ||
+              event.key === " "
+            ) {
+
+              ir(1);
+
+            }
+
+          }
+        );
+
+
+
+        /* TECLADO */
+
+        document.addEventListener(
+          "keydown",
+          event => {
+
+            if (
+              event.key === "ArrowRight"
+            ) {
+
+              ir(actual + 1);
+
+            }
+
+            if (
+              event.key === "ArrowLeft"
+            ) {
+
+              ir(actual - 1);
+
+            }
+
+            if (
+              event.key === "Escape"
+            ) {
+
+              document
+                .getElementById("visor")
+                .classList.remove(
+                  "abierto"
+                );
+
+            }
+
+          }
+        );
+
+
+
+        /* VISOR */
+
+        document
+          .getElementById("visor")
+          .addEventListener(
+            "click",
+            function () {
+
+              this.classList.remove(
+                "abierto"
+              );
+
+            }
+          );
+
+
+
+        /* SWIPE EN CELULAR */
+
+        let inicioX = null;
+
+        let inicioY = null;
+
+
+        document.addEventListener(
+          "touchstart",
+          event => {
+
+            inicioX =
+              event.touches[0].clientX;
+
+            inicioY =
+              event.touches[0].clientY;
+
+          },
+          {
+            passive: true
+          }
+        );
+
+
+        document.addEventListener(
+          "touchend",
+          event => {
+
+            if (
+              inicioX === null
+            ) {
+
+              return;
+
+            }
+
+
+            const finalX =
+              event.changedTouches[0].clientX;
+
+            const finalY =
+              event.changedTouches[0].clientY;
+
+
+            const diferenciaX =
+              finalX - inicioX;
+
+            const diferenciaY =
+              finalY - inicioY;
+
+
+            const visorAbierto =
+              document
+                .getElementById("visor")
+                .classList
+                .contains("abierto");
+
+
+            const esHorizontal =
+              Math.abs(diferenciaX) > 70 &&
+              Math.abs(diferenciaX) >
+                Math.abs(diferenciaY) * 1.5;
+
+
+            if (
+              !visorAbierto && esHorizontal
+            ) {
+
+              if (
+                diferenciaX < 0
+              ) {
+
+                ir(actual + 1);
+
+              } else {
+
+                ir(actual - 1);
+
+              }
+
+            }
+
+
+            inicioX = null;
+
+            inicioY = null;
+
+          },
+          {
+            passive: true
+          }
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
+```
+
