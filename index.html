@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,19 +17,23 @@
     ========================================================= */
 
     :root {
-      --cafe-noche: #1b1009;
-      --cafe-oscuro: #302015;
-      --cafe: #5d4030;
+      --vino-noche: #260710;
+      --vino-oscuro: #47101d;
+      --vino: #5f1524;
 
-      --oro: #b08d57;
-      --oro-claro: #d8bd8b;
+      --rojo: #9e2235;
+      --rojo-vivo: #b23046;
+      --rosa-viejo: #c98b93;
 
-      --crema: #f8f0df;
-      --papel: #eee1c7;
-      --papel-claro: #fbf6ea;
+      --champan: #e9d9c4;
+      --champan-claro: #f2e6d3;
 
-      --tinta: #40301f;
-      --tinta-suave: #705e48;
+      --crema: #fdf8f0;
+      --papel: #f6ecdf;
+      --papel-claro: #fcf7ee;
+
+      --tinta: #3f2229;
+      --tinta-suave: #7a565e;
 
       --serif: "Playfair Display", Georgia, serif;
       --cuerpo: "Cormorant Garamond", Georgia, serif;
@@ -58,20 +61,20 @@
 
       background:
         radial-gradient(
-          circle at 20% 10%,
-          rgba(176, 141, 87, 0.12),
-          transparent 35%
+          circle at 20% 8%,
+          rgba(178, 48, 70, 0.12),
+          transparent 38%
         ),
         radial-gradient(
-          circle at 80% 90%,
-          rgba(176, 141, 87, 0.08),
-          transparent 40%
+          circle at 82% 92%,
+          rgba(178, 48, 70, 0.08),
+          transparent 42%
         ),
         linear-gradient(
-          145deg,
-          #302015,
-          #1b1009 55%,
-          #120a06
+          150deg,
+          #43091a,
+          #2b0712 55%,
+          #1c040b
         );
 
       overflow-x: hidden;
@@ -135,26 +138,20 @@
       color: var(--crema);
 
       background:
-        radial-gradient(
-          circle at 30% 15%,
-          rgba(216, 189, 139, 0.16),
-          transparent 35%
-        ),
         linear-gradient(
-          145deg,
-          #4a3422,
-          #302015 55%,
-          #20140d
+          155deg,
+          #6b1830,
+          #4a0f1e 55%,
+          #350a17
         );
 
-      border-radius: 8px 18px 18px 8px;
+      border-radius: 6px 16px 16px 6px;
 
-      border: 1px solid rgba(216, 189, 139, 0.4);
+      border: 1px solid rgba(233, 217, 196, 0.4);
 
       box-shadow:
         0 40px 80px rgba(0, 0, 0, 0.65),
-        inset 8px 0 20px rgba(0, 0, 0, 0.2),
-        inset 0 0 60px rgba(0, 0, 0, 0.35);
+        inset 8px 0 20px rgba(0, 0, 0, 0.25);
 
       transition:
         transform 0.4s ease,
@@ -166,19 +163,21 @@
 
       box-shadow:
         0 55px 100px rgba(0, 0, 0, 0.75),
-        inset 8px 0 20px rgba(0, 0, 0, 0.2),
-        inset 0 0 60px rgba(0, 0, 0, 0.35);
+        inset 8px 0 20px rgba(0, 0, 0, 0.25);
     }
 
     .portada-libro::before {
       content: "";
 
       position: absolute;
-      inset: 15px;
+      inset: 14px;
 
-      border: 1px solid rgba(216, 189, 139, 0.5);
+      border: 1px solid rgba(233, 217, 196, 0.45);
 
-      border-radius: 5px 13px 13px 5px;
+      outline: 1px solid rgba(233, 217, 196, 0.18);
+      outline-offset: 3px;
+
+      border-radius: 4px 12px 12px 4px;
 
       pointer-events: none;
     }
@@ -197,7 +196,7 @@
       background:
         linear-gradient(
           transparent,
-          rgba(216, 189, 139, 0.6),
+          rgba(233, 217, 196, 0.55),
           transparent
         );
     }
@@ -206,7 +205,7 @@
       font-family: var(--serif);
       font-size: 15px;
       letter-spacing: 8px;
-      color: var(--oro-claro);
+      color: var(--champan);
       margin-bottom: 30px;
     }
 
@@ -215,7 +214,7 @@
       font-size: clamp(38px, 7vw, 56px);
       line-height: 1.1;
       font-weight: 600;
-      color: #fff6e5;
+      color: #fdf3e6;
     }
 
     .portada-nombres {
@@ -224,7 +223,7 @@
       font-family: var(--script);
       font-size: clamp(36px, 7vw, 48px);
 
-      color: var(--oro-claro);
+      color: var(--champan-claro);
     }
 
     .portada-sub {
@@ -237,7 +236,7 @@
 
       font-style: italic;
 
-      color: rgba(248, 240, 223, 0.8);
+      color: rgba(253, 248, 240, 0.82);
     }
 
     .portada-linea {
@@ -250,7 +249,7 @@
         linear-gradient(
           90deg,
           transparent,
-          var(--oro-claro),
+          var(--champan),
           transparent
         );
     }
@@ -264,7 +263,7 @@
 
       text-transform: uppercase;
 
-      color: var(--oro-claro);
+      color: var(--champan);
     }
 
     .portada-abrir {
@@ -276,7 +275,7 @@
       letter-spacing: 4px;
       text-transform: uppercase;
 
-      color: var(--oro-claro);
+      color: var(--champan);
 
       animation: latido 2.5s infinite;
     }
@@ -305,10 +304,14 @@
       align-items: center;
       justify-content: center;
 
-      border: 1px solid rgba(216, 189, 139, 0.7);
+      border: 1px solid rgba(233, 217, 196, 0.7);
       border-radius: 50%;
 
-      color: var(--oro-claro);
+      box-shadow:
+        inset 0 0 0 3px rgba(38, 7, 16, 0.35),
+        inset 0 0 0 4px rgba(233, 217, 196, 0.35);
+
+      color: var(--champan-claro);
 
       transform: rotate(8deg);
     }
@@ -334,9 +337,11 @@
 
       display: flex;
 
-      background: #2a1a10;
+      background: #38081a;
 
       border-radius: 12px;
+
+      border: 1px solid rgba(233, 217, 196, 0.18);
 
       box-shadow:
         0 40px 80px rgba(0, 0, 0, 0.6),
@@ -367,9 +372,9 @@
       background:
         linear-gradient(
           90deg,
-          rgba(0,0,0,0.15),
-          rgba(80,55,35,0.25),
-          rgba(0,0,0,0.15)
+          rgba(0,0,0,0.14),
+          rgba(120,30,50,0.28),
+          rgba(0,0,0,0.14)
         );
 
       pointer-events: none;
@@ -391,12 +396,12 @@
       background:
         linear-gradient(
           90deg,
-          rgba(93, 64, 48, 0.06),
+          rgba(95, 21, 36, 0.05),
           transparent 25%
         ),
         linear-gradient(
           270deg,
-          rgba(93, 64, 48, 0.05),
+          rgba(95, 21, 36, 0.04),
           transparent 25%
         ),
         linear-gradient(
@@ -412,14 +417,14 @@
       border-radius: 12px 0 0 12px;
 
       box-shadow:
-        inset -20px 0 30px -25px rgba(40, 25, 15, 0.6);
+        inset -20px 0 30px -25px rgba(60, 10, 22, 0.55);
     }
 
     .pagina:last-child {
       border-radius: 0 12px 12px 0;
 
       box-shadow:
-        inset 20px 0 30px -25px rgba(40, 25, 15, 0.6);
+        inset 20px 0 30px -25px rgba(60, 10, 22, 0.55);
     }
 
     .pagina::after {
@@ -429,7 +434,7 @@
 
       inset: 18px;
 
-      border: 1px solid rgba(176, 141, 87, 0.28);
+      border: 1px solid rgba(158, 34, 53, 0.22);
 
       pointer-events: none;
     }
@@ -449,7 +454,7 @@
 
       text-transform: uppercase;
 
-      color: var(--oro);
+      color: var(--rojo);
     }
 
     .cap-titulo {
@@ -461,7 +466,7 @@
 
       font-size: clamp(30px, 4vw, 45px);
 
-      color: var(--cafe-oscuro);
+      color: var(--vino-oscuro);
     }
 
     .subtitulo {
@@ -486,7 +491,7 @@
 
       margin: 25px 0 30px;
 
-      color: var(--oro);
+      color: var(--rojo);
     }
 
     .adorno::before,
@@ -500,7 +505,7 @@
         linear-gradient(
           90deg,
           transparent,
-          var(--oro)
+          var(--rosa-viejo)
         );
     }
 
@@ -509,7 +514,7 @@
         linear-gradient(
           270deg,
           transparent,
-          var(--oro)
+          var(--rosa-viejo)
         );
     }
 
@@ -544,7 +549,7 @@
 
       line-height: 0.8;
 
-      color: var(--cafe);
+      color: var(--rojo);
     }
 
     /* =========================================================
@@ -560,10 +565,12 @@
 
       padding: 13px 13px 42px;
 
-      background: #fffdf8;
+      background: #fffdf9;
+
+      border: 1px solid rgba(158, 34, 53, 0.14);
 
       box-shadow:
-        0 20px 35px rgba(45, 28, 17, 0.25);
+        0 20px 35px rgba(62, 14, 25, 0.25);
 
       transform: rotate(-1.5deg);
 
@@ -576,14 +583,14 @@
       transform: rotate(0) scale(1.025);
 
       box-shadow:
-        0 25px 45px rgba(45, 28, 17, 0.35);
+        0 25px 45px rgba(62, 14, 25, 0.35);
     }
 
     .foto-marco img {
       width: 100%;
       display: block;
 
-      filter: sepia(0.08) saturate(0.95);
+      filter: sepia(0.06) saturate(0.97);
     }
 
     .foto-marco figcaption {
@@ -611,7 +618,10 @@
         translateX(-50%)
         rotate(-4deg);
 
-      background: rgba(176, 141, 87, 0.45);
+      background: rgba(158, 34, 53, 0.32);
+
+      box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.18);
     }
 
     .nota {
@@ -621,9 +631,9 @@
 
       padding: 18px 22px;
 
-      border-left: 2px solid var(--oro);
+      border-left: 2px solid var(--rojo);
 
-      background: rgba(176, 141, 87, 0.09);
+      background: rgba(158, 34, 53, 0.06);
 
       font-size: 18px;
 
@@ -697,12 +707,12 @@
     .video-marco {
       padding: 10px;
 
-      background: #20140d;
+      background: #2e0915;
 
-      border: 1px solid rgba(176, 141, 87, 0.45);
+      border: 1px solid rgba(233, 217, 196, 0.35);
 
       box-shadow:
-        0 15px 30px rgba(30, 18, 10, 0.3);
+        0 15px 30px rgba(46, 9, 21, 0.35);
     }
 
     .video-marco video {
@@ -721,6 +731,566 @@
       font-size: 22px;
 
       color: var(--tinta-suave);
+    }
+
+    /* =========================================================
+       PETALOS
+    ========================================================= */
+
+    #petalos {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 40;
+
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       CONTADOR
+    ========================================================= */
+
+    .contador {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 18px 0;
+
+      max-width: 760px;
+
+      margin: 10px auto 0;
+    }
+
+    .contador-bloque {
+      padding: 0 clamp(14px, 3.2vw, 36px);
+
+      text-align: center;
+    }
+
+    .contador-bloque + .contador-bloque {
+      border-left: 1px solid rgba(158, 34, 53, 0.25);
+    }
+
+    .contador-numero {
+      font-family: var(--serif);
+
+      font-weight: 600;
+
+      font-size: clamp(30px, 4.6vw, 54px);
+
+      line-height: 1;
+
+      color: var(--rojo);
+
+      font-variant-numeric: tabular-nums;
+    }
+
+    .contador-etiqueta {
+      margin-top: 10px;
+
+      font-family: var(--serif);
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: var(--tinta-suave);
+    }
+
+    .contador-frase {
+      margin-top: 36px;
+
+      text-align: center;
+
+      font-style: italic;
+
+      font-size: clamp(17px, 1.8vw, 21px);
+
+      color: var(--tinta-suave);
+    }
+
+    .contador-datos {
+      margin-top: 14px;
+
+      text-align: center;
+
+      font-family: var(--serif);
+
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: var(--rojo);
+
+      opacity: 0.85;
+    }
+
+    .contador-aniversario {
+      margin-top: 28px;
+
+      text-align: center;
+
+      font-style: italic;
+
+      font-size: 17px;
+
+      color: var(--tinta-suave);
+    }
+
+    @media (max-width: 700px) {
+
+      .contador {
+        gap: 22px 0;
+      }
+
+      .contador-bloque + .contador-bloque {
+        border-left: none;
+      }
+
+      .contador-bloque {
+        min-width: 88px;
+      }
+
+      .contador-frase {
+        margin-top: 26px;
+      }
+
+    }
+
+    /* =========================================================
+       CONTADOR FLOTANTE (CASITA)
+    ========================================================= */
+
+    .contador-flotante {
+      position: fixed;
+
+      top: 14px;
+
+      left: 14px;
+
+      width: 68px;
+
+      z-index: 55;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 2px;
+
+      padding: 23px 4px 9px;
+
+      background:
+        linear-gradient(
+          165deg,
+          rgba(107, 24, 48, 0.55),
+          rgba(64, 16, 28, 0.6) 75%
+        );
+
+      clip-path:
+        polygon(
+          50% 0%,
+          100% 32%,
+          100% 100%,
+          0% 100%,
+          0% 32%
+        );
+
+      filter: drop-shadow(0 3px 7px rgba(20, 3, 9, 0.3));
+
+      border: none;
+
+      color: var(--champan-claro);
+
+      font-family: var(--serif);
+
+      cursor: pointer;
+
+      backdrop-filter: blur(2px);
+
+      -webkit-backdrop-filter: blur(2px);
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .contador-flotante:hover {
+      transform: translateY(-1px);
+
+      background:
+        linear-gradient(
+          165deg,
+          rgba(107, 24, 48, 0.8),
+          rgba(64, 16, 28, 0.85) 75%
+        );
+    }
+
+    .contador-flotante .flotante-num {
+      font-variant-numeric: tabular-nums;
+
+      font-weight: 600;
+
+      font-size: 14px;
+
+      line-height: 1;
+
+      color: rgba(253, 243, 230, 0.92);
+    }
+
+    .contador-flotante .flotante-d {
+      font-size: 6px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: rgba(201, 139, 147, 0.85);
+    }
+
+    .contador-flotante #flotante-hms {
+      font-weight: 400;
+
+      font-size: 9px;
+
+      letter-spacing: 0.5px;
+
+      margin-top: 2px;
+
+      color: rgba(233, 217, 196, 0.78);
+    }
+
+    .contador-flotante.oculto {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+
+      .contador-flotante {
+        top: 10px;
+
+        left: 10px;
+
+        width: 58px;
+
+        padding: 19px 3px 7px;
+      }
+
+      .contador-flotante .flotante-num {
+        font-size: 12px;
+      }
+
+      .contador-flotante #flotante-hms {
+        font-size: 8px;
+      }
+
+    }
+
+    /* =========================================================
+       EL HOGAR
+    ========================================================= */
+
+    .hogar-icono {
+      text-align: center;
+
+      font-size: clamp(40px, 6vw, 56px);
+
+      margin-top: 24px;
+    }
+
+    .hogar-lema {
+      margin-top: 12px;
+
+      text-align: center;
+
+      font-family: var(--serif);
+
+      font-size: clamp(15px, 2vw, 21px);
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+
+      color: var(--rojo);
+    }
+
+    .hogar-cuenta {
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 16px;
+
+      margin-top: 28px;
+    }
+
+    .hogar-dias-caja {
+      text-align: center;
+    }
+
+    .hogar-dias-numero {
+      font-family: var(--serif);
+
+      font-weight: 600;
+
+      font-size: clamp(64px, 10vw, 108px);
+
+      line-height: 1;
+
+      color: var(--rojo);
+
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hogar-dias-caja .contador-etiqueta {
+      margin-top: 8px;
+    }
+
+    .hogar-reloj {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: flex-start;
+
+      gap: 10px;
+
+      border-top: 1px solid rgba(158, 34, 53, 0.25);
+
+      padding-top: 20px;
+    }
+
+    .hogar-col {
+      text-align: center;
+    }
+
+    .hogar-reloj-numero {
+      font-family: var(--serif);
+
+      font-weight: 600;
+
+      font-size: clamp(30px, 4.5vw, 46px);
+
+      line-height: 1;
+
+      color: var(--vino-oscuro);
+
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hogar-col-sep .hogar-reloj-numero {
+      color: var(--rosa-viejo);
+    }
+
+    .hogar-reloj .contador-etiqueta {
+      margin-top: 8px;
+    }
+
+    .hogar-flecha {
+      text-align: center;
+
+      font-size: 26px;
+
+      color: var(--rosa-viejo);
+
+      margin-top: 26px;
+    }
+
+    .hogar-destino {
+      margin-top: 12px;
+
+      text-align: center;
+
+      font-family: var(--serif);
+
+      font-weight: 600;
+
+      font-size: clamp(32px, 5vw, 52px);
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: var(--vino-oscuro);
+    }
+
+    .hogar-frase {
+      margin-top: 22px;
+
+      text-align: center;
+
+      font-style: italic;
+
+      font-size: clamp(17px, 1.8vw, 21px);
+
+      line-height: 1.6;
+
+      color: var(--tinta-suave);
+    }
+
+    .hogar-corazon {
+      text-align: center;
+
+      font-size: 42px;
+
+      color: rgba(158, 34, 53, 0.45);
+
+      margin-top: 18px;
+    }
+
+    @media (max-width: 700px) {
+
+      .hogar-icono {
+        margin-top: 14px;
+      }
+
+      .hogar-cuenta {
+        margin-top: 18px;
+      }
+
+      .hogar-flecha {
+        margin-top: 18px;
+      }
+
+    }
+
+    /* =========================================================
+       CIERRE DEL LIBRO
+    ========================================================= */
+
+    .cierre-libro {
+      position: relative;
+
+      width: min(430px, 88vw);
+
+      min-height: 580px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 60px 42px;
+
+      text-align: center;
+
+      cursor: pointer;
+
+      background:
+        linear-gradient(
+          205deg,
+          #6b1830,
+          #47101e 55%,
+          #350a17
+        );
+
+      border-radius: 16px 6px 6px 16px;
+
+      border: 1px solid rgba(233, 217, 196, 0.4);
+
+      box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.65),
+        inset -8px 0 20px rgba(0, 0, 0, 0.25);
+
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+    }
+
+    .cierre-libro:hover {
+      transform: translateY(-8px) rotateY(2deg);
+
+      box-shadow:
+        0 55px 100px rgba(0, 0, 0, 0.75),
+        inset -8px 0 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .cierre-libro::before {
+      content: "";
+
+      position: absolute;
+      inset: 14px;
+
+      border: 1px solid rgba(233, 217, 196, 0.45);
+
+      outline: 1px solid rgba(233, 217, 196, 0.18);
+      outline-offset: 3px;
+
+      border-radius: 12px 4px 4px 12px;
+
+      pointer-events: none;
+    }
+
+    .cierre-libro::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      right: 12px;
+
+      width: 3px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(233, 217, 196, 0.55),
+          transparent
+        );
+    }
+
+    .cierre-corazon {
+      font-size: 22px;
+
+      color: rgba(233, 217, 196, 0.7);
+
+      margin-bottom: 24px;
+    }
+
+    .cierre-fin {
+      font-family: var(--serif);
+
+      font-weight: 600;
+
+      font-size: clamp(34px, 7vw, 52px);
+
+      letter-spacing: 14px;
+
+      text-indent: 14px;
+
+      text-transform: uppercase;
+
+      color: #fdf3e6;
+    }
+
+    .cierre-frase {
+      max-width: 30ch;
+
+      margin-top: 22px;
+
+      font-size: 17px;
+
+      font-style: italic;
+
+      line-height: 1.75;
+
+      color: rgba(253, 248, 240, 0.85);
     }
 
     /* =========================================================
@@ -745,7 +1315,7 @@
 
       font-size: 80px;
 
-      color: rgba(176, 141, 87, 0.45);
+      color: rgba(158, 34, 53, 0.45);
 
       margin-bottom: 20px;
     }
@@ -771,7 +1341,54 @@
 
       font-size: 35px;
 
-      color: var(--cafe);
+      color: var(--rojo);
+
+      opacity: 0;
+
+      transform: translateY(10px);
+
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+    }
+
+    .firma.visible {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       CARTA QUE SE ESCRIBE
+    ========================================================= */
+
+    #dedi-texto {
+      cursor: pointer;
+      min-height: 240px;
+    }
+
+    .caret {
+      display: inline-block;
+
+      width: 2px;
+
+      height: 0.95em;
+
+      margin-left: 3px;
+
+      vertical-align: -0.12em;
+
+      background: var(--rojo);
+
+      animation: parpadeoCaret 0.85s steps(1, end) infinite;
+    }
+
+    @keyframes parpadeoCaret {
+
+      50% {
+        opacity: 0;
+      }
+
     }
 
     /* =========================================================
@@ -792,13 +1409,24 @@
 
       padding: 25px;
 
-      background: rgba(20, 12, 7, 0.94);
+      background: rgba(24, 4, 10, 0.94);
 
       cursor: zoom-out;
     }
 
     .visor.abierto {
       display: flex;
+    }
+
+    .visor img {
+      max-width: 92vw;
+      max-height: 90vh;
+      max-height: 90dvh;
+
+      border: 6px solid var(--crema);
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.7);
     }
 
     /* =========================================================
@@ -820,11 +1448,11 @@
 
       border-radius: 50%;
 
-      border: 1px solid rgba(211, 185, 138, 0.55);
+      border: 1px solid rgba(233, 217, 196, 0.55);
 
-      background: rgba(36, 24, 17, 0.72);
+      background: rgba(46, 9, 21, 0.72);
 
-      color: var(--oro-claro);
+      color: var(--champan-claro);
 
       font-size: 20px;
 
@@ -844,7 +1472,7 @@
     }
 
     .boton-musica:hover {
-      border-color: var(--oro-claro);
+      border-color: var(--champan-claro);
     }
 
     .boton-musica.girando {
@@ -863,17 +1491,6 @@
 
     .boton-musica.oculto {
       display: none;
-    }
-
-    .visor img {
-      max-width: 92vw;
-      max-height: 90vh;
-      max-height: 90dvh;
-
-      border: 6px solid var(--crema);
-
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.7);
     }
 
     /* =========================================================
@@ -901,8 +1518,8 @@
       background:
         linear-gradient(
           0deg,
-          rgba(15,9,5,0.95),
-          rgba(15,9,5,0.65),
+          rgba(20,3,9,0.95),
+          rgba(20,3,9,0.65),
           transparent
         );
     }
@@ -912,11 +1529,11 @@
 
       border-radius: 999px;
 
-      border: 1px solid rgba(216,189,139,0.5);
+      border: 1px solid rgba(233,217,196,0.5);
 
-      background: rgba(36,24,17,0.7);
+      background: rgba(46,9,21,0.7);
 
-      color: var(--oro-claro);
+      color: var(--champan-claro);
 
       font-family: var(--serif);
 
@@ -932,11 +1549,11 @@
     }
 
     .boton:hover {
-      background: rgba(93,64,48,0.9);
+      background: rgba(158,34,53,0.85);
 
-      border-color: var(--oro-claro);
+      border-color: var(--champan-claro);
 
-      color: white;
+      color: #fff;
     }
 
     .boton.oculto {
@@ -955,7 +1572,7 @@
 
       border-radius: 50%;
 
-      border: 1px solid var(--oro);
+      border: 1px solid rgba(233,217,196,0.6);
 
       cursor: pointer;
 
@@ -963,7 +1580,9 @@
     }
 
     .punto.actual {
-      background: var(--oro);
+      background: var(--rojo-vivo);
+
+      border-color: var(--rojo-vivo);
 
       transform: scale(1.3);
     }
@@ -1065,7 +1684,7 @@
         border-radius: 0;
 
         box-shadow:
-          inset 0 -15px 25px -25px rgba(40,25,15,0.5);
+          inset 0 -15px 25px -25px rgba(60,10,22,0.5);
       }
 
       .pagina::after {
@@ -1206,6 +1825,8 @@
 </head>
 
 <body>
+
+  <canvas id="petalos" aria-hidden="true"></canvas>
 
   <!-- =========================================================
        PORTADA
@@ -1391,6 +2012,45 @@
 
 
   <!-- =========================================================
+       TIEMPO JUNTOS
+  ========================================================== -->
+
+  <section class="escena" id="escena-tiempo">
+
+    <main class="libro">
+
+      <section class="pagina pagina-completa">
+
+        <div class="cap-numero">
+          Capítulo V
+        </div>
+
+        <h2 class="cap-titulo">
+          Cada segundo contigo
+        </h2>
+
+        <p class="subtitulo">
+          Y este número solo hace una cosa: crecer
+        </p>
+
+        <div class="adorno">✦</div>
+
+        <div class="contador" id="contador"></div>
+
+        <p class="contador-frase" id="contador-frase"></p>
+
+        <p class="contador-datos" id="contador-datos"></p>
+
+        <p class="contador-aniversario" id="contador-aniversario"></p>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
        DEDICATORIA
   ========================================================== -->
 
@@ -1438,6 +2098,7 @@
         <article
           class="texto"
           id="dedi-texto"
+          title="Toca para completar la carta"
         ></article>
 
         <div
@@ -1453,16 +2114,163 @@
 
 
   <!-- =========================================================
+       EL HOGAR
+  ========================================================== -->
+
+  <section class="escena" id="escena-hogar">
+
+    <main class="libro">
+
+      <section class="pagina pagina-completa">
+
+        <div class="cap-numero">
+          Nuestro destino
+        </div>
+
+        <h2 class="cap-titulo">
+          Nuestro próximo paso
+        </h2>
+
+        <div class="hogar-icono">🏠</div>
+
+        <div class="hogar-lema">
+          Construir un hogar
+        </div>
+
+        <p class="subtitulo">
+          La cuenta regresiva ha comenzado…
+        </p>
+
+        <div class="adorno">✦</div>
+
+        <div class="hogar-cuenta">
+
+          <div class="hogar-dias-caja">
+
+            <div class="hogar-dias-numero" id="hogar-dias">
+              0
+            </div>
+
+            <div class="contador-etiqueta">Días</div>
+
+          </div>
+
+          <div class="hogar-reloj">
+
+            <div class="hogar-col">
+
+              <div class="hogar-reloj-numero" id="hogar-horas">00</div>
+
+              <div class="contador-etiqueta">Horas</div>
+
+            </div>
+
+            <div class="hogar-col hogar-col-sep">
+
+              <div class="hogar-reloj-numero">:</div>
+
+              <div class="contador-etiqueta">&nbsp;</div>
+
+            </div>
+
+            <div class="hogar-col">
+
+              <div class="hogar-reloj-numero" id="hogar-minutos">00</div>
+
+              <div class="contador-etiqueta">Min.</div>
+
+            </div>
+
+            <div class="hogar-col hogar-col-sep">
+
+              <div class="hogar-reloj-numero">:</div>
+
+              <div class="contador-etiqueta">&nbsp;</div>
+
+            </div>
+
+            <div class="hogar-col">
+
+              <div class="hogar-reloj-numero" id="hogar-segundos">00</div>
+
+              <div class="contador-etiqueta">Seg.</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="hogar-flecha">↓</div>
+
+        <div class="hogar-destino">Abril 2027</div>
+
+        <p class="hogar-frase">
+          Cada segundo nos acerca<br>
+          al lugar que llamaremos hogar.
+        </p>
+
+        <div class="hogar-corazon">♥</div>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
+       CIERRE DEL LIBRO
+  ========================================================== -->
+
+  <section class="escena" id="escena-cierre">
+
+    <div
+      class="cierre-libro"
+      id="volver-inicio"
+      role="button"
+      tabindex="0"
+    >
+
+      <div class="cierre-corazon">♥</div>
+
+      <div class="monograma">A · A</div>
+
+      <div class="portada-linea"></div>
+
+      <div class="cierre-fin">Fin</div>
+
+      <p class="cierre-frase">
+        Pero nuestro libro sigue abierto…
+        y tú eres mi parte favorita de cada página.
+      </p>
+
+      <div class="portada-linea"></div>
+
+      <div class="portada-fecha">
+        01 · 09 · 2024
+      </div>
+
+      <div class="portada-abrir">
+        Toca para volver a empezar
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
        NAVEGACION
   ========================================================== -->
 
   <nav class="navegacion">
 
     <button
-      class="boton oculto"
+      class="boton"
       id="anterior"
     >
-      ← Anterior
+      ← Atrás
     </button>
 
     <div
@@ -1490,6 +2298,22 @@
   >
     <img id="visor-img" alt="">
   </div>
+
+  <button
+    class="contador-flotante"
+    id="contador-flotante"
+    title="Ir a Nuestro próximo paso"
+  >
+    <span
+      class="flotante-num"
+      id="flotante-dias"
+    >0</span>
+    <span class="flotante-d">días</span>
+    <span
+      class="flotante-num"
+      id="flotante-hms"
+    >00:00:00</span>
+  </button>
 
   <button
     class="boton-musica"
@@ -1560,10 +2384,10 @@
       tituloPortada: "Nuestra Historia",
 
       subtituloPortada:
-        "Una noche que comenzó el 31 de agosto y se extendió hasta la madrugada del 1 de septiembre.",
+        "Una madrugada del 1 de septiembre de 2024. El inicio de nuestra historia.",
 
       fechaInicio:
-        "31 DE AGOSTO · 2024 — 01 DE SEPTIEMBRE · 2024",
+        "01 DE SEPTIEMBRE · 2024",
 
       comienzo: {
 
@@ -1669,7 +2493,7 @@
       dedicatoria: {
 
         numero:
-          "Última página",
+          "Capítulo VI",
 
         titulo:
           "Para ti",
@@ -1703,7 +2527,10 @@
       "escena-cap2",
       "escena-galeria",
       "escena-videos",
-      "escena-dedicatoria"
+      "escena-tiempo",
+      "escena-dedicatoria",
+      "escena-hogar",
+      "escena-cierre"
 
     ];
 
@@ -1714,7 +2541,10 @@
       "La primera cita",
       "Nuestros momentos",
       "En movimiento",
-      "Para ti"
+      "Cada segundo",
+      "Para ti",
+      "El hogar",
+      "El cierre"
 
     ];
 
@@ -1758,29 +2588,6 @@
       nuevaEscena.classList.add("activa");
 
 
-      const libro =
-        nuevaEscena.querySelector(".libro");
-
-
-      if (libro) {
-
-        libro.classList.remove("pasar");
-
-        void libro.offsetWidth;
-
-        libro.classList.add("pasar");
-
-      }
-
-
-      document
-        .getElementById("anterior")
-        .classList.toggle(
-          "oculto",
-          actual === 0
-        );
-
-
       document
         .getElementById("siguiente")
         .classList.toggle(
@@ -1799,6 +2606,52 @@
           );
 
         });
+
+
+      const flotanteActual =
+        document.getElementById("contador-flotante");
+
+      if (flotanteActual) {
+
+        flotanteActual.classList.toggle(
+          "oculto",
+          ESCENAS[actual] === "escena-hogar" ||
+          ESCENAS[actual] === "escena-cierre"
+        );
+
+      }
+
+
+      const libro =
+        nuevaEscena.querySelector(".libro");
+
+
+      if (libro) {
+
+        libro.classList.remove("pasar");
+
+        void libro.offsetWidth;
+
+        libro.classList.add("pasar");
+
+      }
+
+
+      try {
+
+        if (
+          ESCENAS[actual] === "escena-dedicatoria"
+        ) {
+
+          iniciarCarta();
+
+        } else {
+
+          cancelarCarta();
+
+        }
+
+      } catch (e) {}
 
 
       window.scrollTo({
@@ -2273,10 +3126,529 @@
         );
 
 
-        document.getElementById(
-          "dedi-firma"
-        ).textContent =
+        const elementoFirma =
+          document.getElementById("dedi-firma");
+
+        elementoFirma.textContent =
           DATOS.dedicatoria.firma;
+
+        elementoFirma.classList.add("visible");
+
+
+
+        /* PETALOS */
+
+        const reduceMovimiento =
+          window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+
+        const lienzoPetalos =
+          document.getElementById("petalos");
+
+        if (
+          lienzoPetalos &&
+          !reduceMovimiento
+        ) {
+
+          const contexto =
+            lienzoPetalos.getContext("2d");
+
+          const COLORES_PETALO = [
+            "#b23046",
+            "#9e2235",
+            "#c98b93",
+            "#a83a52"
+          ];
+
+          let petalos = [];
+
+          class Petalo {
+
+            constructor(inicial) {
+
+              this.reiniciar(inicial);
+
+            }
+
+            reiniciar(inicial) {
+
+              this.x =
+                Math.random() *
+                lienzoPetalos.width;
+
+              this.y =
+                inicial
+                  ? Math.random() * lienzoPetalos.height
+                  : -30;
+
+              this.tamano =
+                7 + Math.random() * 9;
+
+              this.velocidad =
+                0.35 + Math.random() * 0.75;
+
+              this.fase =
+                Math.random() * Math.PI * 2;
+
+              this.velFase =
+                0.004 + Math.random() * 0.008;
+
+              this.rotacion =
+                Math.random() * Math.PI * 2;
+
+              this.velRotacion =
+                (Math.random() - 0.5) * 0.02;
+
+              this.opacidad =
+                0.22 + Math.random() * 0.3;
+
+              this.color =
+                COLORES_PETALO[
+                  Math.floor(
+                    Math.random() * COLORES_PETALO.length
+                  )
+                ];
+
+            }
+
+            actualizar() {
+
+              this.fase += this.velFase;
+
+              this.rotacion += this.velRotacion;
+
+              this.y += this.velocidad;
+
+              this.x +=
+                Math.sin(this.fase) * 0.6;
+
+              if (
+                this.y >
+                lienzoPetalos.height + 30
+              ) {
+
+                this.reiniciar(false);
+
+              }
+
+            }
+
+            dibujar() {
+
+              const s =
+                this.tamano;
+
+              contexto.save();
+
+              contexto.translate(
+                this.x,
+                this.y
+              );
+
+              contexto.rotate(this.rotacion);
+
+              contexto.globalAlpha =
+                this.opacidad;
+
+              contexto.fillStyle =
+                this.color;
+
+              contexto.beginPath();
+
+              contexto.moveTo(0, -s);
+
+              contexto.quadraticCurveTo(
+                s * 0.9,
+                -s * 0.35,
+                0,
+                s
+              );
+
+              contexto.quadraticCurveTo(
+                -s * 0.9,
+                -s * 0.35,
+                0,
+                -s
+              );
+
+              contexto.closePath();
+
+              contexto.fill();
+
+              contexto.restore();
+
+            }
+
+          }
+
+          function ajustarLienzo() {
+
+            lienzoPetalos.width =
+              window.innerWidth;
+
+            lienzoPetalos.height =
+              window.innerHeight;
+
+            const cantidad =
+              Math.min(
+                26,
+                Math.max(
+                  10,
+                  Math.floor(window.innerWidth / 65)
+                )
+              );
+
+            petalos = [];
+
+            for (let i = 0; i < cantidad; i++) {
+
+              petalos.push(new Petalo(true));
+
+            }
+
+          }
+
+          function ciclo() {
+
+            if (!document.hidden) {
+
+              contexto.clearRect(
+                0,
+                0,
+                lienzoPetalos.width,
+                lienzoPetalos.height
+              );
+
+              petalos.forEach(p => {
+
+                p.actualizar();
+
+                p.dibujar();
+
+              });
+
+            }
+
+            requestAnimationFrame(ciclo);
+
+          }
+
+          window.addEventListener(
+            "resize",
+            ajustarLienzo
+          );
+
+          try {
+
+            ajustarLienzo();
+
+            requestAnimationFrame(ciclo);
+
+          } catch (e) {}
+
+        }
+
+
+        /* TIEMPO JUNTOS */
+
+        const FECHA_INICIO =
+          new Date(2024, 8, 1, 0, 0, 0);
+
+        const contenedorContador =
+          document.getElementById("contador");
+
+        const fraseTiempo =
+          document.getElementById("contador-frase");
+
+        const datosTiempo =
+          document.getElementById("contador-datos");
+
+        const aniversarioTiempo =
+          document.getElementById("contador-aniversario");
+
+        let numerosContador = [];
+
+        function construirContador() {
+
+          contenedorContador.innerHTML = "";
+
+          numerosContador = [];
+
+          ["Años", "Días", "Horas", "Minutos", "Segundos"]
+            .forEach(etiqueta => {
+
+              const bloque =
+                document.createElement("div");
+
+              bloque.className =
+                "contador-bloque";
+
+              const numero =
+                document.createElement("div");
+
+              numero.className =
+                "contador-numero";
+
+              const texto =
+                document.createElement("div");
+
+              texto.className =
+                "contador-etiqueta";
+
+              texto.textContent =
+                etiqueta;
+
+              bloque.appendChild(numero);
+
+              bloque.appendChild(texto);
+
+              contenedorContador.appendChild(bloque);
+
+              numerosContador.push(numero);
+
+            });
+
+        }
+
+        function pintarTiempo() {
+
+          const ahora = new Date();
+
+          let anios =
+            ahora.getFullYear() -
+            FECHA_INICIO.getFullYear();
+
+          const aniversarioEsteAnio =
+            new Date(ahora.getFullYear(), 8, 1);
+
+          if (ahora < aniversarioEsteAnio) {
+
+            anios -= 1;
+
+          }
+
+          let resto =
+            ahora -
+            new Date(
+              FECHA_INICIO.getFullYear() + anios,
+              8,
+              1
+            );
+
+          const dias =
+            Math.floor(resto / 86400000);
+
+          resto -= dias * 86400000;
+
+          const horas =
+            Math.floor(resto / 3600000);
+
+          resto -= horas * 3600000;
+
+          const minutos =
+            Math.floor(resto / 60000);
+
+          resto -= minutos * 60000;
+
+          const segundos =
+            Math.floor(resto / 1000);
+
+          const valores = [
+
+            String(anios).padStart(2, "0"),
+            String(dias).padStart(2, "0"),
+            String(horas).padStart(2, "0"),
+            String(minutos).padStart(2, "0"),
+            String(segundos).padStart(2, "0")
+
+          ];
+
+
+          valores.forEach((valor, index) => {
+
+            numerosContador[index].textContent =
+              valor;
+
+          });
+
+
+          const msTotal =
+            ahora - FECHA_INICIO;
+
+          const diasTotales =
+            Math.floor(msTotal / 86400000);
+
+          const horasTotales =
+            Math.floor(msTotal / 3600000);
+
+          const latidos =
+            Math.floor((msTotal / 60000) * 80);
+
+
+          fraseTiempo.textContent =
+
+            `${diasTotales.toLocaleString("es")} días escribiendo esta historia… y apenas vamos por el principio.`;
+
+
+          datosTiempo.textContent =
+
+            `${horasTotales.toLocaleString("es")} horas · ≈ ${latidos.toLocaleString("es")} latidos`;
+
+
+          let proximo =
+            new Date(ahora.getFullYear(), 8, 1);
+
+          if (ahora >= proximo) {
+
+            proximo =
+              new Date(ahora.getFullYear() + 1, 8, 1);
+
+          }
+
+          const diasFaltan =
+            Math.ceil((proximo - ahora) / 86400000);
+
+
+          aniversarioTiempo.textContent =
+
+            diasFaltan === 0
+
+              ? "Hoy es nuestro aniversario."
+
+              : `Faltan ${diasFaltan} días para el próximo 1 de septiembre.`;
+
+        }
+
+
+        if (contenedorContador) {
+
+          try {
+
+            construirContador();
+
+            pintarTiempo();
+
+            setInterval(pintarTiempo, 1000);
+
+          } catch (e) {}
+
+        }
+
+
+        /* CUENTA REGRESIVA AL HOGAR */
+
+        const FECHA_HOGAR =
+          new Date(2027, 3, 1, 0, 0, 0);
+
+        const hogarDias =
+          document.getElementById("hogar-dias");
+
+        const hogarHoras =
+          document.getElementById("hogar-horas");
+
+        const hogarMinutos =
+          document.getElementById("hogar-minutos");
+
+        const hogarSegundos =
+          document.getElementById("hogar-segundos");
+
+        const flotanteDias =
+          document.getElementById("flotante-dias");
+
+        const flotanteHms =
+          document.getElementById("flotante-hms");
+
+        function pintarHogar() {
+
+          const falta =
+            FECHA_HOGAR - new Date();
+
+          if (falta <= 0) {
+
+            hogarDias.textContent = "0";
+
+            hogarHoras.textContent = "00";
+
+            hogarMinutos.textContent = "00";
+
+            hogarSegundos.textContent = "00";
+
+            return;
+
+          }
+
+          const diasHogar =
+            Math.floor(falta / 86400000);
+
+          const horasHogar =
+            Math.floor((falta % 86400000) / 3600000);
+
+          const minutosHogar =
+            Math.floor((falta % 3600000) / 60000);
+
+          const segundosHogar =
+            Math.floor((falta % 60000) / 1000);
+
+          hogarDias.textContent =
+            diasHogar.toLocaleString("es");
+
+          hogarHoras.textContent =
+            String(horasHogar).padStart(2, "0");
+
+          hogarMinutos.textContent =
+            String(minutosHogar).padStart(2, "0");
+
+          hogarSegundos.textContent =
+            String(segundosHogar).padStart(2, "0");
+
+          if (flotanteDias && flotanteHms) {
+
+            flotanteDias.textContent =
+              String(diasHogar);
+
+            flotanteHms.textContent =
+
+              `${String(horasHogar).padStart(2, "0")}:${String(minutosHogar).padStart(2, "0")}:${String(segundosHogar).padStart(2, "0")}`;
+
+          }
+
+        }
+
+        if (hogarDias) {
+
+          try {
+
+            pintarHogar();
+
+            setInterval(pintarHogar, 1000);
+
+          } catch (e) {}
+
+        }
+
+        const botonFlotante =
+          document.getElementById("contador-flotante");
+
+        if (botonFlotante) {
+
+          botonFlotante.addEventListener(
+            "click",
+            () => {
+
+              const indiceHogar =
+                ESCENAS.indexOf("escena-hogar");
+
+              if (indiceHogar !== -1) {
+
+                ir(indiceHogar);
+
+              }
+
+            }
+          );
+
+        }
 
 
 
@@ -2539,6 +3911,264 @@
 
 
 
+        /* CARTA QUE SE ESCRIBE */
+
+        const textoCarta =
+          document.getElementById("dedi-texto");
+
+        const firmaCarta =
+          document.getElementById("dedi-firma");
+
+        const VELOCIDAD_CARTA = 26;
+
+        let temporizadorCarta = null;
+
+        let temporizadorSeguro = null;
+
+        let terminadaCarta = true;
+
+        function cancelarCarta() {
+
+          if (temporizadorCarta) {
+
+            clearTimeout(temporizadorCarta);
+
+            temporizadorCarta = null;
+
+          }
+
+          if (temporizadorSeguro) {
+
+            clearTimeout(temporizadorSeguro);
+
+            temporizadorSeguro = null;
+
+          }
+
+        }
+
+        function quitarCarets() {
+
+          textoCarta
+            .querySelectorAll(".caret")
+            .forEach(c => c.remove());
+
+        }
+
+        function terminarCarta() {
+
+          cancelarCarta();
+
+          crearParrafos(
+            textoCarta,
+            DATOS.dedicatoria.parrafos
+          );
+
+          firmaCarta.classList.add("visible");
+
+          terminadaCarta = true;
+
+        }
+
+        function escribirParrafo(indice) {
+
+          return new Promise(resolver => {
+
+            const parrafos =
+              DATOS.dedicatoria.parrafos;
+
+            const texto =
+              parrafos[indice];
+
+            const p =
+              document.createElement("p");
+
+            let desde = 0;
+
+            if (indice === 0) {
+
+              const cap =
+                document.createElement("span");
+
+              cap.className =
+                "inicial";
+
+              cap.textContent =
+                texto.charAt(0);
+
+              p.appendChild(cap);
+
+              desde = 1;
+
+            }
+
+            const nodo =
+              document.createTextNode("");
+
+            p.appendChild(nodo);
+
+            p.appendChild(
+              (() => {
+                const c =
+                  document.createElement("span");
+                c.className = "caret";
+                return c;
+              })()
+            );
+
+            textoCarta.appendChild(p);
+
+            let i = desde;
+
+            function tick() {
+
+              i += 1;
+
+              nodo.data =
+                texto.slice(desde, i);
+
+              quitarCarets();
+
+              const c =
+                document.createElement("span");
+
+              c.className = "caret";
+
+              p.appendChild(c);
+
+              let espera =
+                VELOCIDAD_CARTA +
+                Math.random() * 30;
+
+              const letra =
+                texto.charAt(i - 1);
+
+              if (".…!?".includes(letra)) {
+                espera += 320;
+              } else if (letra === ",") {
+                espera += 140;
+              }
+
+              if (i >= texto.length) {
+
+                quitarCarets();
+
+                resolver();
+
+                return;
+
+              }
+
+              temporizadorCarta =
+                setTimeout(tick, espera);
+
+            }
+
+            temporizadorCarta =
+              setTimeout(tick, 140);
+
+          });
+
+        }
+
+        function pausaCarta(ms) {
+
+          return new Promise(resolver => {
+
+            temporizadorCarta =
+              setTimeout(resolver, ms);
+
+          });
+
+        }
+
+        async function secuenciaCarta() {
+
+          const parrafos =
+            DATOS.dedicatoria.parrafos;
+
+          for (
+
+            let i = 0;
+            i < parrafos.length;
+            i++
+
+          ) {
+
+            await escribirParrafo(i);
+
+            if (i < parrafos.length - 1) {
+
+              await pausaCarta(420);
+
+            }
+
+          }
+
+          firmaCarta.classList.add("visible");
+
+          terminadaCarta = true;
+
+        }
+
+        function iniciarCarta() {
+
+          cancelarCarta();
+
+          textoCarta.innerHTML = "";
+
+          firmaCarta.classList.remove("visible");
+
+          terminadaCarta = false;
+
+          if (reduceMovimiento) {
+
+            terminarCarta();
+
+            return;
+
+          }
+
+          try {
+
+            secuenciaCarta();
+
+          } catch (e) {
+
+            terminarCarta();
+
+            return;
+
+          }
+
+          temporizadorSeguro =
+            setTimeout(() => {
+
+              if (!terminadaCarta) {
+
+                terminarCarta();
+
+              }
+
+            }, 20000);
+
+        }
+
+        textoCarta.addEventListener(
+          "click",
+          () => {
+
+            if (!terminadaCarta) {
+
+              terminarCarta();
+
+            }
+
+          }
+        );
+
+
+
         /* ABRIR LIBRO */
 
         const abrir =
@@ -2573,6 +4203,38 @@
 
           }
         );
+
+
+
+        /* VOLVER AL INICIO */
+
+        const volverInicio =
+          document.getElementById("volver-inicio");
+
+        if (volverInicio) {
+
+          volverInicio.addEventListener(
+            "click",
+            () => ir(0)
+          );
+
+          volverInicio.addEventListener(
+            "keydown",
+            event => {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                ir(0);
+
+              }
+
+            }
+          );
+
+        }
 
 
 
@@ -2732,5 +4394,3 @@
 
 </body>
 </html>
-```
-
