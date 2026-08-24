@@ -801,6 +801,70 @@
       display: flex;
     }
 
+    /* =========================================================
+       MUSICA
+    ========================================================= */
+
+    .boton-musica {
+      position: fixed;
+
+      right: 18px;
+
+      bottom: 80px;
+
+      z-index: 50;
+
+      width: 48px;
+
+      height: 48px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(211, 185, 138, 0.55);
+
+      background: rgba(36, 24, 17, 0.72);
+
+      color: var(--oro-claro);
+
+      font-size: 20px;
+
+      line-height: 1;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(4px);
+
+      transition: border-color 0.25s ease;
+    }
+
+    .boton-musica:hover {
+      border-color: var(--oro-claro);
+    }
+
+    .boton-musica.girando {
+      animation: girar 4s linear infinite;
+    }
+
+    @keyframes girar {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .boton-musica.oculto {
+      display: none;
+    }
+
     .visor img {
       max-width: 92vw;
       max-height: 90vh;
@@ -1050,6 +1114,18 @@
         font-size: 11px;
 
         letter-spacing: 1px;
+      }
+
+      .boton-musica {
+        width: 44px;
+
+        height: 44px;
+
+        right: 14px;
+
+        bottom: calc(74px + env(safe-area-inset-bottom));
+
+        font-size: 18px;
       }
 
       .puntos {
@@ -1415,6 +1491,15 @@
     <img id="visor-img" alt="">
   </div>
 
+  <button
+    class="boton-musica"
+    id="boton-musica"
+    aria-label="Música"
+    title="Música"
+  >
+    &#9834;
+  </button>
+
 
   <!-- =========================================================
        JAVASCRIPT
@@ -1453,7 +1538,9 @@
       video02: "media/video02.mp4",
       video03: "media/video03.mp4",
       video04: "media/video04.mp4",
-      video05: "media/video05.mp4"
+      video05: "media/video05.mp4",
+
+      cancion: "media/cancion.mp3"
 
     };
 
@@ -2260,6 +2347,198 @@
 
 
 
+        /* MUSICA */
+
+        let cancion = null;
+
+        let musicaIniciada = false;
+
+        const SEGUNDO_CANCION = 17;
+
+        const FORMATOS_CANCION = [
+          "media/cancion.mp3",
+          "media/cancion.m4a",
+          "media/cancion.ogg",
+          "media/cancion.wav"
+        ];
+
+        const botonMusica =
+          document.getElementById(
+            "boton-musica"
+          );
+
+        function iniciarMusica() {
+
+          if (!MEDIA.cancion) {
+
+            return;
+
+          }
+
+          if (!cancion) {
+
+            musicaIniciada = true;
+
+            cancion = new Audio();
+
+            cancion.loop = false;
+
+            cancion.volume = 0.5;
+
+            let indiceFormato = 0;
+
+            cancion.addEventListener(
+              "loadedmetadata",
+              () => {
+
+                try {
+
+                  cancion.currentTime =
+                    SEGUNDO_CANCION;
+
+                } catch (e) {}
+
+              }
+            );
+
+            cancion.addEventListener(
+              "ended",
+              () => {
+
+                cancion.currentTime =
+                  SEGUNDO_CANCION;
+
+                cancion.play().catch(() => {});
+
+              }
+            );
+
+            cancion.addEventListener(
+              "error",
+              () => {
+
+                indiceFormato += 1;
+
+                if (
+                  indiceFormato <
+                  FORMATOS_CANCION.length
+                ) {
+
+                  cancion.src =
+                    FORMATOS_CANCION[indiceFormato];
+
+                  cancion.load();
+
+                } else {
+
+                  botonMusica.classList.add(
+                    "oculto"
+                  );
+
+                }
+
+              }
+            );
+
+            cancion.addEventListener(
+              "play",
+              () =>
+                botonMusica.classList.add(
+                  "girando"
+                )
+            );
+
+            cancion.addEventListener(
+              "pause",
+              () =>
+                botonMusica.classList.remove(
+                  "girando"
+                )
+            );
+
+            cancion.src =
+              FORMATOS_CANCION[indiceFormato];
+
+            cancion.load();
+
+          }
+
+          const promesa =
+            cancion.play();
+
+          if (promesa) {
+
+            promesa.catch(() => {});
+
+          }
+
+        }
+
+        function alternarMusica() {
+
+          if (!cancion) {
+
+            iniciarMusica();
+
+            return;
+
+          }
+
+          if (cancion.paused) {
+
+            cancion.play().catch(() => {});
+
+          } else {
+
+            cancion.pause();
+
+          }
+
+        }
+
+        botonMusica.addEventListener(
+          "click",
+          alternarMusica
+        );
+
+        document.addEventListener(
+          "pointerdown",
+          function alPrimerToque(event) {
+
+            if (
+              event.target &&
+              event.target.closest &&
+              event.target.closest("#boton-musica")
+            ) {
+
+              return;
+
+            }
+
+            if (
+              !cancion || cancion.paused
+            ) {
+
+              iniciarMusica();
+
+            }
+
+            if (
+              cancion && !cancion.paused
+            ) {
+
+              document.removeEventListener(
+                "pointerdown",
+                alPrimerToque
+              );
+
+            }
+
+          }
+        );
+
+
+
         /* ABRIR LIBRO */
 
         const abrir =
@@ -2270,7 +2549,10 @@
 
         abrir.addEventListener(
           "click",
-          () => ir(1)
+          () => {
+            ir(1);
+            iniciarMusica();
+          }
         );
 
 
@@ -2284,6 +2566,8 @@
             ) {
 
               ir(1);
+
+              iniciarMusica();
 
             }
 
