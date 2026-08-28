@@ -26,25 +26,23 @@
       overflow: hidden;
     }
 
-    .calavera {
-      font-size: clamp(90px, 22vw, 200px);
-      line-height: 1;
-      animation: flotar 3s ease-in-out infinite;
+    .cargando {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: girar 0.8s linear infinite;
     }
 
-    @keyframes flotar {
-      0%, 100% {
-        transform: translateY(0);
-        opacity: 0.9;
-      }
-      50% {
-        transform: translateY(-14px);
-        opacity: 1;
+    @keyframes girar {
+      to {
+        transform: rotate(360deg);
       }
     }
   </style>
 </head>
 <body>
-  <div class="calavera">💀</div>
+  <div class="cargando" aria-label="Cargando"></div>
 </body>
 </html>
