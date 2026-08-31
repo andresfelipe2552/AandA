@@ -2,20 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Nuestra Historia</title>
-
-  <meta name="description" content="Nuestra historia — contador de aniversario">
-  <meta name="theme-color" content="#260710">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="NuestraHist">
-
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" href="icon-192.png">
-  <link rel="apple-touch-icon" href="icon-192.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -901,12 +890,6 @@
 
       padding: 23px 4px 9px;
 
-      touch-action: none;
-
-      user-select: none;
-
-      -webkit-user-select: none;
-
       background:
         linear-gradient(
           165deg,
@@ -931,7 +914,7 @@
 
       font-family: var(--serif);
 
-      cursor: grab;
+      cursor: pointer;
 
       backdrop-filter: blur(2px);
 
@@ -940,42 +923,6 @@
       transition:
         transform 0.25s ease,
         background 0.25s ease;
-    }
-
-    .contador-flotante:active {
-      cursor: grabbing;
-    }
-
-    .contador-flotante .flotante-cerrar {
-      position: absolute;
-
-      top: 2px;
-
-      right: 7px;
-
-      width: 18px;
-
-      height: 18px;
-
-      padding: 0;
-
-      border: none;
-
-      background: rgba(20, 3, 9, 0.35);
-
-      color: rgba(253, 243, 230, 0.85);
-
-      font-size: 15px;
-
-      line-height: 1;
-
-      text-align: center;
-
-      border-radius: 50%;
-
-      cursor: pointer;
-
-      z-index: 2;
     }
 
     .contador-flotante:hover {
@@ -2666,20 +2613,10 @@
 
       if (flotanteActual) {
 
-        let ocultoUsuario = false;
-
-        try {
-
-          ocultoUsuario =
-            localStorage.getItem("flotante-oculto") === "1";
-
-        } catch (e) {}
-
         flotanteActual.classList.toggle(
           "oculto",
-          ocultoUsuario ||
-          (ESCENAS[actual] === "escena-hogar" ||
-          ESCENAS[actual] === "escena-cierre")
+          ESCENAS[actual] === "escena-hogar" ||
+          ESCENAS[actual] === "escena-cierre"
         );
 
       }
@@ -4452,122 +4389,6 @@
 
       }
     );
-
-    /* =========================================================
-       PWA + CONTADOR FLOTANTE (arrastre y ocultar)
-    ========================================================= */
-
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("sw.js").catch(() => {});
-      });
-    }
-
-    const flotante = document.getElementById("contador-flotante");
-    const GUARDAR_H = "flotante-oculto";
-    const GUARDAR_X = "flotante-x";
-    const GUARDAR_Y = "flotante-y";
-
-    if (flotante) {
-      const botonCerrar = document.createElement("button");
-      botonCerrar.type = "button";
-      botonCerrar.className = "flotante-cerrar";
-      botonCerrar.setAttribute("aria-label", "Ocultar contador");
-      botonCerrar.title = "Ocultar contador";
-      botonCerrar.textContent = "×";
-      flotante.insertBefore(botonCerrar, flotante.firstChild);
-
-      let ocultoPorUsuario = false;
-
-      try {
-        ocultoPorUsuario = localStorage.getItem(GUARDAR_H) === "1";
-      } catch (e) {}
-
-      if (ocultoPorUsuario) {
-        flotante.classList.add("oculto");
-      }
-
-      botonCerrar.addEventListener("click", event => {
-        event.stopPropagation();
-        flotante.classList.add("oculto");
-        try {
-          localStorage.setItem(GUARDAR_H, "1");
-        } catch (e) {}
-      });
-
-      const moverA = (left, top) => {
-        const w = flotante.offsetWidth;
-        const h = flotante.offsetHeight;
-        const maxL = Math.max(0, window.innerWidth - w);
-        const maxT = Math.max(0, window.innerHeight - h);
-        flotante.style.left = Math.min(Math.max(0, left), maxL) + "px";
-        flotante.style.top = Math.min(Math.max(0, top), maxT) + "px";
-        flotante.style.right = "auto";
-        flotante.style.bottom = "auto";
-      };
-
-      let arrastrando = false;
-      let difX = 0;
-      let difY = 0;
-      let clickInicioX = 0;
-      let clickInicioY = 0;
-
-      const iniciarArrastre = (x, y) => {
-        arrastrando = true;
-        const rect = flotante.getBoundingClientRect();
-        difX = x - rect.left;
-        difY = y - rect.top;
-        clickInicioX = x;
-        clickInicioY = y;
-      };
-
-      const moverArrastre = (x, y) => {
-        if (!arrastrando) return;
-        moverA(x - difX, y - difY);
-      };
-
-      const terminarArrastre = (x, y) => {
-        if (!arrastrando) return;
-        arrastrando = false;
-        const dist = Math.hypot(x - clickInicioX, y - clickInicioY);
-        if (dist < 8) {
-          const indiceHogar = ESCENAS.indexOf("escena-hogar");
-          if (indiceHogar !== -1) ir(indiceHogar);
-        }
-        try {
-          localStorage.setItem(GUARDAR_X, parseInt(flotante.style.left, 10) || 0);
-          localStorage.setItem(GUARDAR_Y, parseInt(flotante.style.top, 10) || 0);
-        } catch (e) {}
-      };
-
-      flotante.addEventListener("pointerdown", event => {
-        if (event.target === botonCerrar) return;
-        iniciarArrastre(event.clientX, event.clientY);
-        flotante.setPointerCapture && flotante.setPointerCapture(event.pointerId);
-        event.preventDefault();
-      });
-
-      flotante.addEventListener("pointermove", event => {
-        moverArrastre(event.clientX, event.clientY);
-      });
-
-      flotante.addEventListener("pointerup", event => {
-        terminarArrastre(event.clientX, event.clientY);
-        flotante.releasePointerCapture && flotante.releasePointerCapture(event.pointerId);
-      });
-
-      flotante.addEventListener("pointercancel", () => {
-        arrastrando = false;
-      });
-
-      try {
-        const guardadoX = parseInt(localStorage.getItem(GUARDAR_X), 10);
-        const guardadoY = parseInt(localStorage.getItem(GUARDAR_Y), 10);
-        if (!isNaN(guardadoX) && !isNaN(guardadoY)) {
-          moverA(guardadoX, guardadoY);
-        }
-      } catch (e) {}
-    }
 
   </script>
 
