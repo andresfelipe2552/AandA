@@ -2752,15 +2752,13 @@
         try {
 
           ocultoUsuario =
-            localStorage.getItem("flotante-oculto") === "1";
+            localStorage.getItem("flotante-oculto-v2") === "1";
 
         } catch (e) {}
 
         flotanteActual.classList.toggle(
           "oculto",
-          ocultoUsuario ||
-          (ESCENAS[actual] === "escena-hogar" ||
-          ESCENAS[actual] === "escena-cierre")
+          ocultoUsuario
         );
 
       }
@@ -4545,7 +4543,7 @@
     }
 
     const flotante = document.getElementById("contador-flotante");
-    const GUARDAR_H = "flotante-oculto";
+    const GUARDAR_H = "flotante-oculto-v2";
     const GUARDAR_X = "flotante-x";
     const GUARDAR_Y = "flotante-y";
 
