@@ -1,4 +1,4 @@
-const CACHE = "nuestra-historia-v1";
+const CACHE = "nuestra-historia-v2";
 
 const PRECACHE = [
   "./",

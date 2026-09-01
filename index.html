@@ -604,6 +604,37 @@
       filter: sepia(0.06) saturate(0.97);
     }
 
+    .invitacion-marco {
+      max-width: 540px;
+
+      margin: 25px auto;
+
+      padding: 16px 16px 16px;
+
+      transform: rotate(-0.5deg);
+
+      background: linear-gradient(
+        180deg,
+        #fffdf9,
+        #fbf3e6
+      );
+    }
+
+    .invitacion-marco:hover {
+      transform: rotate(0) scale(1.015);
+    }
+
+    .invitacion-marco .invitacion-img {
+      border-radius: 4px;
+
+      max-height: 66vh;
+
+      object-fit: contain;
+
+      box-shadow:
+        inset 0 0 0 1px rgba(158, 34, 53, 0.12);
+    }
+
     .foto-marco figcaption {
       margin-top: 12px;
 
@@ -2273,6 +2304,49 @@
 
 
   <!-- =========================================================
+       LA INVITACIÓN
+  ========================================================== -->
+
+  <section class="escena" id="escena-invitacion">
+
+    <main class="libro">
+
+      <section class="pagina pagina-completa">
+
+        <div class="cap-numero">
+          Con mucho cariño
+        </div>
+
+        <h2 class="cap-titulo">
+          Nos encantaría que nos acompañes
+        </h2>
+
+        <p class="subtitulo">
+          Toca la invitación para verla completa
+        </p>
+
+        <div class="adorno">✦</div>
+
+        <figure class="foto-marco invitacion-marco" id="invitacion-marco">
+
+          <span class="cinta"></span>
+
+          <img
+            class="invitacion-img"
+            src="invitacion.jpeg"
+            alt="Nuestra invitación"
+          >
+
+        </figure>
+
+      </section>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================================================
        CIERRE DEL LIBRO
   ========================================================== -->
 
@@ -2583,6 +2657,7 @@
       "escena-tiempo",
       "escena-dedicatoria",
       "escena-hogar",
+      "escena-invitacion",
       "escena-cierre"
 
     ];
@@ -2597,6 +2672,7 @@
       "Cada segundo",
       "Para ti",
       "El hogar",
+      "La invitación",
       "El cierre"
 
     ];
@@ -4567,6 +4643,21 @@
           moverA(guardadoX, guardadoY);
         }
       } catch (e) {}
+    }
+
+    const invitacionImg =
+      document.getElementById("invitacion-img");
+
+    if (invitacionImg) {
+
+      invitacionImg.addEventListener(
+        "click",
+        () => abrirVisor(
+          "invitacion.jpeg",
+          "Nuestra invitación"
+        )
+      );
+
     }
 
   </script>
